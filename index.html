@@ -1,0 +1,1257 @@
+
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avec Léo — Francès A1-A2</title>
+<style>
+:root{
+  /* Lila — primari */
+  --b50:#EFF6FF;--b100:#BFDBFE;--b200:#93C5FD;--b600:#2563EB;--b800:#1D4ED8;--b900:#1E40AF;
+  /* Verd menta — èxit */
+  --g50:#ECFDF5;--g100:#A7F3D0;--g600:#059669;--g800:#065F46;
+  /* Taronja meló — accent / CTA */
+  --a50:#FEF2F2;--a600:#DC2626;--a800:#B91C1C;
+  /* Rosa coral — error */
+  --r50:#FFF1F2;--r100:#FFE4E6;--r600:#E11D48;--r800:#9F1239;
+  /* Lila clar — escriptura */
+  --t50:#EFF6FF;--t600:#2563EB;--t800:#1E40AF;
+  /* Gris càlid */
+  --gr50:#FAFAF9;--gr100:#E7E5E4;--gr600:#78716C;
+  --f:'Segoe UI',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--f);background:#F4F7FC;color:#1C1917;min-height:100vh;}
+
+/* ── COVER ── */
+#cover{min-height:100vh;background:linear-gradient(135deg,#1E3A8A 0%,#1E40AF 40%,#2563EB 70%,#60A5FA 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1rem;position:relative;overflow:hidden;}
+#cover::before{content:'';position:absolute;top:-120px;right:-120px;width:440px;height:440px;border-radius:50%;background:rgba(219,234,254,0.12);}
+#cover::after{content:'';position:absolute;bottom:-80px;left:-80px;width:320px;height:320px;border-radius:50%;background:rgba(220,38,38,0.32);}
+.ci{position:relative;z-index:1;width:100%;max-width:500px;text-align:center;}
+.ci-flag{font-size:3.8rem;margin-bottom:0.9rem;}
+.ci-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:#FECACA;margin-bottom:0.45rem;}
+.ci-title{font-size:2.5rem;font-weight:800;color:#fff;line-height:1.05;letter-spacing:-0.03em;margin-bottom:0.2rem;}
+.ci-hero{font-size:1rem;color:#FEE2E2;margin-bottom:0.5rem;}
+.ci-badge{display:inline-block;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.35);border-radius:20px;padding:4px 16px;font-size:0.79rem;color:#FEE2E2;margin-bottom:1.5rem;}
+.ci-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin-bottom:2rem;}
+.ci-pill{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.35);border-radius:24px;padding:5px 13px;font-size:0.81rem;color:#fff;font-weight:600;}
+.ci-card{background:#FBFCFE;border:none;border-radius:20px;padding:1.75rem 1.75rem 1.5rem;text-align:left;box-shadow:0 8px 32px rgba(30,58,138,0.28);}
+.ci-card h2{color:#B91C1C;font-size:1rem;font-weight:700;margin-bottom:0.2rem;}
+.ci-card>p{color:#78716C;font-size:0.79rem;margin-bottom:1.2rem;}
+.sf{display:flex;flex-direction:column;gap:11px;}
+.sf-row{display:flex;gap:10px;}
+.sf-row .sf-f{flex:1;}
+.sf-f{display:flex;flex-direction:column;gap:4px;}
+.sf-f label{font-size:10px;color:#B91C1C;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;}
+.sf-f input{background:#FEF2F2;border:1.5px solid #FECACA;border-radius:10px;padding:9px 13px;color:#1C1917;font-size:0.9rem;font-family:var(--f);width:100%;transition:all 0.2s;}
+.sf-f input::placeholder{color:#A8A29E;}
+.sf-f input:focus{outline:none;border-color:#DC2626;background:#fff;}
+#btn-start{width:100%;margin-top:1.1rem;padding:12px;background:linear-gradient(90deg,#991B1B,#7F1D1D);color:#fff;border:none;border-radius:12px;font-size:0.93rem;font-weight:700;cursor:pointer;transition:opacity 0.15s;letter-spacing:0.01em;}
+#btn-start:hover{opacity:0.88;}
+#cover-err{color:#FECACA;font-size:0.81rem;margin-top:7px;display:none;text-align:center;}
+
+/* ── HEADER ── */
+header{background:linear-gradient(90deg,#1E40AF,#2563EB);color:#fff;padding:0;display:none;}
+.hi{max-width:960px;margin:0 auto;padding:1rem 1.5rem 0.75rem;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.hi-left{display:flex;align-items:center;gap:10px;}
+.hi-leo{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#93C5FD,#BFDBFE);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.hi h1{font-size:1.2rem;font-weight:700;letter-spacing:-0.01em;}
+.hi-meta{font-size:0.79rem;color:var(--b200);line-height:1.5;text-align:right;}
+.hi-score{display:flex;align-items:center;gap:8px;font-size:0.79rem;color:var(--b100);padding:0.45rem 1.5rem;background:rgba(0,0,0,0.18);}
+.hi-score>div{max-width:960px;width:100%;margin:0 auto;display:flex;align-items:center;gap:10px;}
+.bar-track{flex:1;height:5px;background:rgba(255,255,255,0.18);border-radius:10px;overflow:hidden;}
+.bar-fill{height:100%;background:linear-gradient(90deg,#93C5FD,#DBEAFE);border-radius:10px;transition:width 0.5s ease;}
+.pts-badge{background:linear-gradient(90deg,#DC2626,#DC2626);border-radius:20px;padding:3px 11px;font-size:11px;font-weight:700;color:#fff;white-space:nowrap;}
+
+/* ── NAV ── */
+.nav-wrap{background:#FBFCFE;border-bottom:1px solid #E7E5E4;overflow-x:auto;scrollbar-width:none;display:none;}
+.nav-wrap::-webkit-scrollbar{display:none;}
+nav{max-width:960px;margin:0 auto;display:flex;padding:0 1rem;}
+nav button{background:none;border:none;border-bottom:3px solid transparent;padding:0.75rem 0.9rem;font-size:0.82rem;font-weight:500;color:#666;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:5px;transition:color 0.15s,border-color 0.15s;position:relative;}
+nav button:hover:not(:disabled){color:#2563EB;}
+nav button.active{color:#1E40AF;border-bottom-color:#DC2626;font-weight:700;}
+nav button:disabled{color:#ccc;cursor:not-allowed;}
+.nav-ck{font-size:10px;background:#059669;color:#fff;border-radius:10px;padding:1px 6px;font-weight:700;}
+.nav-lock{font-size:11px;color:#ccc;}
+
+/* ── MAIN ── */
+main{max-width:960px;margin:0 auto;padding:1.75rem 1.5rem 5rem;display:none;}
+
+/* ── LÉO GUIDE ── */
+.leo-bubble{display:flex;align-items:flex-start;gap:10px;margin-bottom:1.5rem;}
+.leo-av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#60A5FA,#93C5FD);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
+.leo-msg{background:#FBFCFE;border:1.5px solid #BFDBFE;border-radius:0 20px 20px 20px;padding:0.7rem 1rem;font-size:0.87rem;color:#1C1917;line-height:1.6;max-width:480px;position:relative;}
+.leo-msg::before{content:'';position:absolute;left:-8px;top:12px;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-right:8px solid #BFDBFE;}
+.leo-msg::after{content:'';position:absolute;left:-6px;top:13px;width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-right:7px solid #FBFCFE;}
+.leo-name{font-size:10px;font-weight:700;color:#2563EB;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;}
+
+/* ── UNIT OBJECTIVE ── */
+.unit-obj{background:#EFF6FF;border-left:4px solid #60A5FA;border-radius:0 14px 14px 0;padding:0.75rem 1rem;margin-bottom:1.5rem;font-size:0.87rem;color:#1E40AF;line-height:1.55;}
+.unit-obj strong{font-weight:700;display:block;margin-bottom:2px;font-size:0.79rem;text-transform:uppercase;letter-spacing:0.08em;color:#2563EB;}
+
+/* ── UNIT HEADER ── */
+.uh{display:flex;align-items:flex-start;gap:0.9rem;margin-bottom:1.25rem;}
+.uh-icon{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
+.uh h2{font-size:1.25rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:3px;}
+.uh-meta{font-size:0.78rem;color:#666;display:flex;gap:7px;flex-wrap:wrap;}
+.mp{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:20px;padding:2px 9px;font-size:11px;color:#1D4ED8;font-weight:600;}
+
+/* ── DIALOGUE ── */
+.dlg{background:#FBFCFE;border:1px solid #BFDBFE;border-top:4px solid #2563EB;border-radius:16px;padding:1rem 1.25rem;margin-bottom:1.75rem;}
+.dlg h3{font-size:0.71rem;text-transform:uppercase;letter-spacing:0.1em;color:#2563EB;margin-bottom:0.8rem;font-weight:700;}
+.dlg-top{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:0.8rem;}
+.dlg-top h3{margin-bottom:0;}
+.dlg-btns{display:flex;gap:6px;}
+.dl-all{background:var(--b50);border:1px solid var(--b100);color:var(--b800);border-radius:20px;padding:4px 13px;font-size:0.78rem;font-weight:700;cursor:pointer;font-family:var(--f);transition:all 0.15s;}
+.dl-all:hover{background:var(--b100);}
+.dl-stop{background:#fff;border:1px solid var(--gr100);color:var(--gr600);border-radius:20px;padding:4px 10px;font-size:0.78rem;cursor:pointer;transition:all 0.15s;}
+.dl-stop:hover{border-color:var(--r600);color:var(--r600);}
+.dl{display:flex;gap:9px;margin-bottom:0.4rem;font-size:0.87rem;line-height:1.55;align-items:flex-start;border-radius:8px;padding:2px 4px;transition:background 0.2s;}
+.dl.playing{background:var(--b50);}
+.dl-txt{flex:1;}
+.dl-spk{background:none;border:none;cursor:pointer;font-size:0.85rem;padding:0 2px;opacity:0.45;transition:opacity 0.15s;line-height:1.4;}
+.dl-spk:hover{opacity:1;}
+.sp{font-size:0.7rem;font-weight:700;color:#2563EB;min-width:70px;padding-top:2px;text-transform:uppercase;}
+
+/* ── EX SECTION ── */
+.ex{margin-bottom:2rem;}
+.exh{display:flex;align-items:center;gap:8px;margin-bottom:0.8rem;}
+.exn{width:24px;height:24px;background:#DC2626;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;}
+.exh h3{font-size:0.9rem;font-weight:600;}
+.ext{font-size:10px;background:#DBEAFE;color:#1E40AF;border-radius:20px;padding:2px 8px;font-weight:700;margin-left:auto;border:1px solid #93C5FD;}
+
+
+/* ── TF ── */
+.tf-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0.6rem 0.9rem;background:#FBFCFE;border:1px solid #E7E5E4;border-radius:12px;margin-bottom:6px;font-size:0.87rem;transition:all 0.25s;}
+.tf-row.correct{border-color:var(--g600);background:var(--g50);}
+.tf-row.wrong{border-color:var(--r600);background:var(--r50);}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-5px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
+.tf-row.anim-correct{animation:pulse 0.35s ease;}
+.tf-row.anim-wrong{animation:shake 0.35s ease;}
+.tf-q{flex:1;line-height:1.5;}
+.tf-btns{display:flex;gap:5px;flex-shrink:0;}
+.tb{padding:3px 12px;border:1.5px solid #ddd;border-radius:6px;background:#fff;font-size:0.79rem;font-weight:600;cursor:pointer;transition:all 0.15s;color:#444;}
+.tb:hover{border-color:#2563EB;color:#2563EB;background:#EFF6FF;}
+.tb.sv{background:#2563EB;border-color:#2563EB;color:#fff;}
+.tb.sf2{background:#6C757D;border-color:#6C757D;color:#fff;}
+.tb.ok{background:var(--g50);border-color:var(--g600);color:var(--g800);}
+.tb.ko{background:var(--r50);border-color:var(--r600);color:var(--r800);}
+
+/* ── OPEN ── */
+.oq{background:#FBFCFE;border:1px solid #E7E5E4;border-radius:14px;margin-bottom:9px;overflow:hidden;}
+.oq-lbl{display:block;padding:0.6rem 0.9rem 0.15rem;font-size:0.87rem;font-weight:500;line-height:1.5;}
+.oq textarea{width:100%;border:none;border-top:1px solid #E7E5E4;padding:0.5rem 0.9rem;font-family:var(--f);font-size:0.87rem;resize:vertical;min-height:52px;background:#FAFAF9;color:#1C1917;outline:none;}
+.oq textarea:focus{background:#fff;}
+.model-ans{display:none;padding:0.5rem 0.9rem;background:var(--g50);border-top:1px solid #c5dfa0;font-size:0.81rem;color:var(--g800);line-height:1.5;}
+.model-ans.show{display:block;}
+.model-ans strong{font-weight:700;}
+
+/* ── REORDER ── */
+.reorder-prompt{font-size:0.83rem;color:#555;margin-bottom:0.75rem;line-height:1.5;}
+.reorder-item{background:#FBFCFE;border:1px solid #E7E5E4;border-radius:14px;padding:0.7rem 1rem;margin-bottom:8px;}
+.ri-q{font-size:0.82rem;color:#1E3A8A;font-weight:700;margin-bottom:6px;}
+.word-tokens{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px;}
+.wt{padding:4px 11px;background:#EFF6FF;border:1.5px solid #93C5FD;border-radius:20px;font-size:0.84rem;cursor:pointer;user-select:none;transition:all 0.15s;color:#1E40AF;font-weight:500;}
+.wt:hover{background:#DBEAFE;border-color:#2563EB;color:#2563EB;}
+.wt.used{opacity:0.3;pointer-events:none;}
+.wt.ok{background:var(--g50);border-color:var(--g600);color:var(--g800);}
+.wt.ko{background:var(--r50);border-color:var(--r600);color:var(--r800);}
+.reorder-answer{min-height:38px;border:2px dashed #BFDBFE;border-radius:12px;padding:5px 8px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;background:#F2F7FF;font-size:0.85rem;}
+.reorder-answer.ok{border-color:var(--g600);background:var(--g50);}
+.reorder-answer.ko{border-color:var(--r600);background:var(--r50);}
+.ans-token{padding:3px 9px;border-radius:5px;background:#fff;border:1px solid #ddd;font-size:0.83rem;cursor:pointer;}
+.ans-token:hover{border-color:var(--r600);background:var(--r50);}
+
+/* ── FILL ── */
+.fill-item{padding:0.6rem 0.9rem;background:#FBFCFE;border:1px solid #E7E5E4;border-radius:12px;margin-bottom:6px;font-size:0.89rem;line-height:2;display:flex;align-items:center;flex-wrap:wrap;gap:3px;}
+.fi{border:none;border-bottom:2.5px solid #93C5FD;padding:1px 4px;font-size:0.89rem;font-family:var(--f);background:transparent;color:#1C1917;min-width:105px;outline:none;text-align:center;transition:all 0.2s;}
+.fi:focus{border-bottom-color:#2563EB;}
+.fi.ok{border-bottom-color:#059669;color:#065F46;background:#ECFDF5;border-radius:3px 3px 0 0;}
+.fi.ko{border-bottom-color:var(--r600);color:var(--r800);background:var(--r50);border-radius:3px 3px 0 0;}
+.wb{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:0.8rem;padding:0.65rem 0.9rem;background:#EFF6FF;border-radius:12px;border:1px solid #BFDBFE;}
+.wc{padding:3px 11px;background:#fff;border:1.5px solid #93C5FD;border-radius:20px;font-size:0.81rem;cursor:pointer;color:#2563EB;font-weight:600;transition:all 0.15s;}
+.wc:hover{background:#DBEAFE;border-color:#2563EB;}
+.wc.used{opacity:0.32;pointer-events:none;text-decoration:line-through;}
+
+/* ── CONJ CHALLENGE ── */
+.conj-challenge{background:#fff;border:1px solid #e8eaed;border-radius:12px;overflow:hidden;margin-bottom:8px;}
+.conj-header{background:#2563EB;color:#fff;padding:0.6rem 1rem;display:flex;align-items:center;justify-content:space-between;}
+.conj-header h4{font-size:0.85rem;font-weight:700;}
+.conj-timer{font-size:1.3rem;font-weight:800;font-variant-numeric:tabular-nums;min-width:48px;text-align:right;}
+.conj-timer.warn{color:#FFC9C9;}
+.conj-progress{height:4px;background:rgba(255,255,255,0.2);}
+.conj-progress-fill{height:100%;background:#fff;transition:width 0.2s linear;}
+.conj-grid{display:grid;grid-template-columns:auto 1fr 1fr;gap:0;}
+.conj-grid-head{background:#EFF6FF;color:#1E40AF;font-size:0.78rem;font-weight:700;padding:6px 10px;border-bottom:1px solid #BFDBFE;}
+.conj-cell{padding:6px 10px;border-bottom:1px solid #eee;display:flex;align-items:center;}
+.conj-cell:nth-child(3n+1){color:#1E40AF;font-weight:600;font-size:0.85rem;background:#FAFAF9;}
+.conj-inp{border:none;border-bottom:1.5px solid #ddd;padding:2px 4px;font-size:0.87rem;font-family:var(--f);width:100%;background:transparent;outline:none;transition:all 0.18s;}
+.conj-inp:focus{border-bottom-color:#2563EB;}
+.conj-inp.ok{border-bottom-color:var(--g600);color:var(--g800);background:var(--g50);border-radius:3px 3px 0 0;}
+.conj-inp.ko{border-bottom-color:var(--r600);color:var(--r800);background:var(--r50);border-radius:3px 3px 0 0;}
+@keyframes cellpop{0%{transform:scale(1)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
+.conj-inp.ok{animation:cellpop 0.22s ease;}
+.conj-cta{padding:0.6rem 1rem;background:var(--gr50);display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.conj-start{padding:6px 16px;background:#2563EB;color:#fff;border:none;border-radius:8px;font-size:0.82rem;font-weight:700;cursor:pointer;transition:all 0.15s;}
+.conj-start:hover{background:#1D4ED8;transform:translateY(-1px);}
+.conj-hint{font-size:0.79rem;color:#888;}
+
+/* ── WRITING ── */
+.ws{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:14px;padding:0.85rem 1rem;margin-bottom:9px;}
+.ws h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;color:#1E40AF;margin-bottom:0.45rem;font-weight:700;}
+.ws-steps{display:flex;flex-direction:column;gap:3px;}
+.ws-step{font-size:0.82rem;color:#1E40AF;line-height:1.5;padding-left:1rem;position:relative;}
+.ws-step::before{content:"→";position:absolute;left:0;color:#60A5FA;}
+.wa{background:#fff;border:1px solid #E7E5E4;border-radius:14px;overflow:hidden;}
+.wa-starter{padding:0.65rem 0.9rem;background:#EFF6FF;border-bottom:1px solid #BFDBFE;font-size:0.87rem;color:#1E40AF;line-height:1.5;}
+.wa-starter strong{font-weight:700;color:#2563EB;}
+.wa textarea{width:100%;border:none;padding:0.85rem 0.9rem;font-family:var(--f);font-size:0.89rem;min-height:110px;resize:vertical;background:#fff;color:#1a1a1a;line-height:1.7;outline:none;}
+.wa-foot{padding:0.45rem 0.9rem;background:#fafafa;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;}
+.wc-out{font-size:0.77rem;color:#888;}
+.wc-warn{color:var(--r600);}
+
+/* ── CHECKLIST ── */
+.checklist{background:#ECFDF5;border:1px solid #A7F3D0;border-radius:14px;padding:0.75rem 1rem;margin-top:8px;}
+.checklist h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;color:#065F46;margin-bottom:0.5rem;font-weight:700;}
+.cl-item{display:flex;align-items:center;gap:8px;padding:4px 0;font-size:0.85rem;color:#333;cursor:pointer;}
+.cl-item input[type=checkbox]{width:15px;height:15px;accent-color:#059669;cursor:pointer;}
+.cl-item.checked{color:#065F46;font-weight:500;}
+
+/* ── SCORE BOARD ── */
+.score-board{background:#FBFCFE;border:1px solid #E7E5E4;border-radius:16px;padding:1rem;margin-bottom:1.75rem;}
+.sb-title{font-size:0.79rem;text-transform:uppercase;letter-spacing:0.08em;color:#888;margin-bottom:0.6rem;font-weight:700;}
+.sb-units{display:flex;gap:6px;flex-wrap:wrap;}
+.sb-unit{flex:1;min-width:80px;background:#EFF6FF;border-radius:12px;padding:8px 8px;text-align:center;border:1.5px solid transparent;transition:all 0.2s;position:relative;}
+.sb-unit .su-emoji{font-size:1.2rem;}
+.sb-unit .su-pts{font-size:1.1rem;font-weight:800;color:#2563EB;}
+.sb-unit .su-max{font-size:0.7rem;color:#aaa;}
+.sb-unit.done{background:var(--g50);border-color:var(--g100);}
+.sb-unit.done .su-pts{color:#059669;}
+.sb-unit.locked{opacity:0.5;}
+.sb-unit.locked::after{content:'🔒';position:absolute;top:4px;right:5px;font-size:10px;}
+
+/* ── LOCKED UNIT ── */
+.locked-msg{background:#fff;border:2px dashed #ddd;border-radius:14px;padding:2.5rem;text-align:center;color:#aaa;}
+.locked-msg .lm-icon{font-size:2.5rem;margin-bottom:0.5rem;}
+.locked-msg h3{font-size:1rem;color:#888;margin-bottom:0.3rem;}
+.locked-msg p{font-size:0.85rem;}
+
+/* ── COMPLETE BANNER ── */
+.done-banner{background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #93C5FD;border-radius:18px;padding:1.5rem;text-align:center;margin-top:1.5rem;}
+.done-banner .db-icon{font-size:2.5rem;margin-bottom:0.5rem;}
+.done-banner h3{font-size:1.1rem;color:#1E40AF;margin-bottom:0.2rem;font-weight:700;}
+.done-banner p{font-size:0.85rem;color:#2563EB;}
+.btn-next{display:inline-block;margin-top:0.75rem;padding:8px 22px;background:#2563EB;color:#fff;border:none;border-radius:12px;font-size:0.88rem;font-weight:700;cursor:pointer;transition:all 0.15s;}
+.btn-next:hover{background:#1D4ED8;transform:translateY(-1px);}
+
+/* ── ACTIONS ── */
+.acts{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap;align-items:center;}
+.btn-ck{padding:7px 16px;background:#2563EB;color:#fff;border:none;border-radius:10px;font-size:0.82rem;font-weight:600;cursor:pointer;transition:all 0.15s;}
+.btn-ck:hover{background:#1D4ED8;transform:translateY(-1px);}
+.btn-sh{padding:7px 16px;background:#EFF6FF;color:#2563EB;border:1.5px solid #60A5FA;border-radius:10px;font-size:0.82rem;font-weight:600;cursor:pointer;transition:all 0.15s;}
+.btn-sh:hover{background:#2563EB;color:#fff;transform:translateY(-1px);}
+.btn-rs{padding:7px 16px;background:transparent;color:#78716C;border:none;border-radius:10px;font-size:0.82rem;cursor:pointer;transition:all 0.15s;text-decoration:underline;text-underline-offset:2px;}
+.btn-rs:hover{color:#1C1917;}
+.sc{display:inline-flex;align-items:center;gap:4px;font-size:0.79rem;font-weight:700;padding:4px 12px;border-radius:20px;margin-left:auto;}
+.sc-g{background:#059669;color:#fff;}
+.sc-a{background:#DC2626;color:#fff;}
+.sc-r{background:var(--r600);color:#fff;}
+
+/* ── PDF BAR ── */
+.pdf-bar{display:none;background:#FBFCFE;border-top:3px solid #60A5FA;padding:0.85rem 1.5rem;}
+.pdf-bar.show{display:block;}
+.pdf-bar-in{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.pdf-bar-in p{font-size:0.84rem;color:#555;}
+.pdf-bar-in p span{color:var(--r600);font-weight:600;}
+#btn-pdf{padding:9px 22px;background:linear-gradient(90deg,#2563EB,#60A5FA);color:#fff;border:none;border-radius:10px;font-size:0.88rem;font-weight:700;cursor:pointer;transition:opacity 0.15s;}
+#btn-pdf:hover{opacity:0.88;}
+#btn-pdf:disabled{background:#aaa;cursor:not-allowed;}
+
+@media(max-width:600px){
+  .ci-title{font-size:1.8rem;}
+  main{padding:1rem 0.85rem 4rem;}
+  .sf-row{flex-direction:column;}
+  .tf-row{flex-direction:column;align-items:flex-start;gap:7px;}
+  .conj-grid{grid-template-columns:auto 1fr;}
+}
+
+/* ── VOCAB SECTION ── */
+.vocab-section{background:#FBFCFE;border:1px solid #E7E5E4;border-radius:16px;padding:1rem;margin-bottom:1.75rem;}
+.vocab-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;}
+.vocab-header h3{font-size:0.9rem;font-weight:700;color:var(--b900);display:flex;align-items:center;gap:6px;}
+.vocab-tag{font-size:10px;background:var(--g50);color:var(--g800);border-radius:20px;padding:2px 9px;font-weight:700;}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:9px;}@media(max-width:480px){.vocab-grid{grid-template-columns:repeat(3,1fr);}.vocab-card .vc-img{padding:6px;}}
+.vocab-card{border:1.5px solid #E7E5E4;border-radius:14px;overflow:hidden;cursor:pointer;transition:all 0.18s;background:#fff;user-select:none;}
+.vocab-card:hover{border-color:#93C5FD;transform:translateY(-2px);}
+.vocab-card .vc-img{width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:#F2F7FF;padding:8px;}
+.vocab-card .vc-img svg{width:100%;height:100%;}
+.vocab-card .vc-label{padding:5px 7px 7px;}
+.vc-fr{font-size:0.79rem;font-weight:700;color:#1E3A8A;display:block;}
+.vc-ca{font-size:0.69rem;color:var(--gr600);display:block;margin-top:1px;}
+/* Memory game */
+.mem-game{margin-top:1.1rem;border-top:1px solid var(--gr100);padding-top:0.9rem;}
+.mem-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.65rem;flex-wrap:wrap;gap:6px;}
+.mem-header h4{font-size:0.83rem;font-weight:700;color:var(--b900);}
+.mem-info{font-size:0.79rem;color:#888;display:flex;gap:10px;align-items:center;}
+.mem-pairs{font-weight:700;color:var(--b600);}
+.mem-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:7px;}
+.mc{border:1.5px solid #E7E5E4;border-radius:12px;padding:7px 5px;text-align:center;cursor:pointer;transition:all 0.18s;background:#FBFCFE;min-height:72px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;user-select:none;}
+.mc:hover{border-color:#93C5FD;background:#EFF6FF;}
+.mc.active{border-color:#2563EB;background:#DBEAFE;transform:scale(1.04);}
+.mc.matched{border-color:var(--g600);background:var(--g50);cursor:default;}
+.mc.wrong{border-color:var(--r600);background:var(--r50);}
+@keyframes matchpop{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.mc.matched{animation:matchpop 0.3s ease;}
+.mc .mc-img{width:46px;height:46px;}
+.mc .mc-img svg{width:100%;height:100%;}
+.mc .mc-w{font-size:0.79rem;font-weight:700;color:#1E3A8A;line-height:1.3;}
+.mc .mc-t{font-size:0.68rem;color:var(--gr600);}
+.mem-done{text-align:center;padding:0.65rem;background:var(--g50);border-radius:8px;font-size:0.85rem;color:var(--g800);font-weight:600;margin-top:6px;}
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══ -->
+<div id="cover">
+  <div class="ci">
+    <div class="ci-flag">🇫🇷</div>
+    <p class="ci-eyebrow">Llengua estrangera · 3r ESO</p>
+    <h1 class="ci-title">Avec Léo</h1>
+    <p class="ci-hero">5 missions en français — tu pots fer-ho!</p>
+    <span class="ci-badge">Nivell A1 – A2 &nbsp;·&nbsp; 5 unitats</span>
+    <div class="ci-pills">
+      <span class="ci-pill">👟 Botiga</span>
+      <span class="ci-pill">🎵 Perdut!</span>
+      <span class="ci-pill">🤒 Farmàcia</span>
+      <span class="ci-pill">🍕 Mercat</span>
+      <span class="ci-pill">🍔 Fast food</span>
+    </div>
+    <div class="ci-card">
+      <h2>Identifica't per començar</h2>
+      <p>Les teves dades apareixeran al PDF de lliurament.</p>
+      <div class="sf">
+        <div class="sf-f"><label>Nom i cognoms</label><input type="text" id="s-name" placeholder="ex. Maria García López" autocomplete="off"></div>
+        <div class="sf-row">
+          <div class="sf-f"><label>Grup / Classe</label><input type="text" id="s-group" placeholder="ex. 3r ESO B" autocomplete="off"></div>
+          <div class="sf-f"><label>Data</label><input type="date" id="s-date"></div>
+        </div>
+      </div>
+      <button id="btn-start" onclick="startApp()">Endavant, Léo! →</button>
+      <p id="cover-err">Omple tots els camps per continuar.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ APP ══ -->
+<header>
+  <div class="hi">
+    <div class="hi-left">
+      <div class="hi-leo">🧑</div>
+      <div><p style="font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--b200);margin-bottom:1px;">Avec Léo · Francès A1–A2</p><h1>5 missions en français</h1></div>
+    </div>
+    <div class="hi-meta" id="student-tag"></div>
+  </div>
+  <div class="hi-score">
+    <div>
+      <span id="prog-lbl">0 de 5 missions</span>
+      <div class="bar-track"><div class="bar-fill" id="global-bar" style="width:0%"></div></div>
+      <span class="pts-badge" id="pts-total">0 pts</span>
+      <span id="autosave-ind" style="font-size:10px;color:#9fd8c8;opacity:0;transition:opacity 0.4s;white-space:nowrap;">✓ Guardat</span>
+      <button onclick="if(confirm('Esborrar la sessió i tornar a la portada?')){clearSave();location.reload();}" style="padding:2px 9px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;color:var(--b100);font-size:10px;cursor:pointer;white-space:nowrap;">Nova sessió</button>
+    </div>
+  </div>
+  <div id="sb-header" style="display:none;max-width:960px;margin:0 auto;padding:0.5rem 1.5rem 0.6rem;display:flex;gap:6px;flex-wrap:wrap;"></div>
+</header>
+
+<div class="nav-wrap">
+  <nav id="unit-nav"></nav>
+</div>
+
+<main id="app"></main>
+
+<div class="pdf-bar" id="pdf-bar">
+  <div class="pdf-bar-in">
+    <p id="pdf-status">Completa totes les missions per generar el PDF.</p>
+    <button id="btn-pdf" onclick="generatePDF()" disabled>Generar PDF de lliurament</button>
+  </div>
+</div>
+
+<script>
+function shuf(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+/* ── ÀUDIO TTS (Web Speech API) ── */
+let FR_VOICE=null;
+function pickFrVoice(){
+  const vs=speechSynthesis.getVoices().filter(v=>v.lang&&v.lang.toLowerCase().startsWith('fr'));
+  FR_VOICE=vs.find(v=>/google/i.test(v.name)&&/fr[-_]fr/i.test(v.lang))||vs.find(v=>/fr[-_]fr/i.test(v.lang))||vs[0]||null;
+}
+if('speechSynthesis' in window){pickFrVoice();speechSynthesis.onvoiceschanged=pickFrVoice;}
+function mkUtt(t){const u=new SpeechSynthesisUtterance(t);u.lang='fr-FR';if(FR_VOICE)u.voice=FR_VOICE;u.rate=0.92;return u;}
+function speakFr(t){
+  if(!('speechSynthesis' in window))return;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(mkUtt(t));
+}
+function speakDlg(ui,li){speakFr(UNITS[ui].dialogue[li][1]);}
+function speakAllDlg(ui){
+  if(!('speechSynthesis' in window))return;
+  speechSynthesis.cancel();
+  UNITS[ui].dialogue.forEach(([sp,txt],li)=>{
+    const u=mkUtt(txt);
+    u.onstart=()=>{document.querySelectorAll('.dl.playing').forEach(e=>e.classList.remove('playing'));const r=document.getElementById(`dl-${ui}-${li}`);if(r)r.classList.add('playing');};
+    u.onend=()=>{const r=document.getElementById(`dl-${ui}-${li}`);if(r)r.classList.remove('playing');};
+    speechSynthesis.speak(u);
+  });
+}
+function stopTTS(){if('speechSynthesis' in window){speechSynthesis.cancel();document.querySelectorAll('.dl.playing').forEach(e=>e.classList.remove('playing'));}}
+function speakVocab(ui,i){speakFr(VOCAB[ui][i].fr);}
+
+const STU={name:'',group:'',date:''};
+let timerInterval=null,conjTimerInterval=null;
+
+// ── LEO MESSAGES per unitat ──
+const LEO_MSGS=[
+  {intro:"Hola! Sóc en Léo 👋 Estic de viatge a París i necessito la teva ajuda. Primera parada: una botiga de roba esportiva. Ajuda'm a parlar amb la venedora!",done:"Brutal! 🔥 Has aconseguit la samarreta. Ara anem a trobar la sala de concerts... però estic completament perdut!"},
+  {intro:"Uf, estic perdut al metro de París 😅 He de trobar la Salle Pleyel per veure un concert. Ajuda'm a demanar indicacions!",done:"Gràcies! 🎵 He trobat la sala just a temps. Però durant el concert em trobo malament... necessito una farmàcia!"},
+  {intro:"Ai, em fa mal el cap i tinc febre 🤒 Hi ha una farmàcia a la cantonada. Ajuda'm a explicar els símptomes!",done:"Millor! 💊 El farmacèutic ha estat molt amable. Ara tinc gana — anem al mercat!"},
+  {intro:"Que gana! 🍕 Al mercat del barri hi ha fruites i verdures increïbles. Ajuda'm a comprar ingredients per fer una pizza!",done:"Perfecte! 🧑‍🍳 Tinc tots els ingredients. Per acabar el viatge, sopar en un fast food francès!"},
+  {intro:"Última missió! 🍔 Un McDo al centre de París. No és molt típic, però... tenen McBaguette! Ajuda'm a demanar.",done:"Mission accomplie! 🎉 Has completat les 5 missions. Ets un crack del francès!"},
+];
+
+const UNITS=[
+{id:0,emoji:'👟',title:'La botiga de roba',color:'#EEF3FF',topic:'Anar de compres',level:'A1–A2',comp:'CCL, CCEC',
+ objective:"Aprendràs a demanar roba en una botiga, preguntar talla i preu, i fer una compra.",
+ dialogue:[
+   ["Léo","Excusez-moi, vous avez des sweatshirts ?"],
+   ["Venedora","Bien sûr ! Quelle couleur vous plaît ?"],
+   ["Léo","En noir, s'il vous plaît. C'est pour faire du sport."],
+   ["Venedora","Et quelle taille ? Small, medium ou large ?"],
+   ["Léo","Je fais du medium. C'est combien ?"],
+   ["Venedora","Celui-ci est à 35 euros. Il est en promo !"],
+   ["Léo","Super ! Je le prends. Je peux payer par carte ?"],
+   ["Venedora","Oui, bien sûr. La caisse est là-bas."],
+ ],
+ tf:[{q:"Léo cherche un jean.",a:false},{q:"Il veut du medium.",a:true},{q:"Le sweatshirt coûte 50 euros.",a:false},{q:"Le sweatshirt est en promo.",a:true},{q:"On ne peut pas payer par carte.",a:false}],
+ open:[
+   {q:"Qu'est-ce que Léo cherche dans le magasin ?",model:"Il cherche un sweatshirt noir (pour faire du sport)."},
+   {q:"Quelle taille fait Léo ?",model:"Il fait du medium."},
+   {q:"Pourquoi Léo est content du prix ?",model:"Parce que le sweatshirt est en promo (35 euros)."},
+ ],
+ reorder:[
+   {tokens:['excusez-moi','vous','avez','des','sweatshirts','noirs','?'],answer:'excusez-moi vous avez des sweatshirts noirs ?'},
+   {tokens:['quelle','taille','vous','plaît',',','small','medium','ou','large','?'],answer:'quelle taille vous plaît , small medium ou large ?'},
+   {tokens:['celui-ci','est','à','35','euros','il','est','en','promo'],answer:'celui-ci est à 35 euros il est en promo'},
+   {tokens:['super','je','le','prends','je','peux','payer','par','carte','?'],answer:'super je le prends je peux payer par carte ?'},
+ ],
+ fill:{bank:["en promo","par carte","quelle taille","je le prends","c'est combien"],
+   sentences:[
+     {b:"Le vendeur demande : « ",blank:"Quelle taille",a:" faites-vous ? »"},
+     {b:"Le client demande : « ",blank:"C'est combien",a:", ce sweatshirt ? »"},
+     {b:"La vendeuse dit que le sweatshirt est ",blank:"en promo",a:" cette semaine."},
+     {b:"Léo décide et dit : « ",blank:"Je le prends",a:" ! »"},
+     {b:"Pour finir, Léo veut payer ",blank:"par carte",a:" bancaire."},
+   ]},
+ conj:{verbs:['chercher','prendre'],forms:{'je':['cherche','prends'],'tu':['cherches','prends'],'il/elle':['cherche','prend'],'nous':['cherchons','prenons'],'vous':['cherchez','prenez'],'ils/elles':['cherchent','prennent']}},
+ writing:{
+   prompt:"Estàs en una botiga i vols comprar unes sabatilles. Escriu el diàleg.",
+   starter:"— Bonjour, je cherche des baskets, s'il vous plaît.",
+   scaffold:["Pregunta si les tenen del teu número.","Demana el preu i decideix si les compres.","Paga i acomiada't."],
+   minWords:35,
+   checks:["He preguntat el preu.","He indicat el número de sabata.","El diàleg té almenys 5 intercanvis.","He revisat els accents (é, è, à...)."]
+ }
+},
+{id:1,emoji:'🎵',title:'Perdut al metro',color:'#EBFBEE',topic:'Orientar-se per la ciutat',level:'A1–A2',comp:'CCL, CMCT',
+ objective:"Aprendràs a demanar i donar indicacions al carrer i al metro de París.",
+ dialogue:[
+   ["Léo","Pardon, je cherche la Salle Pleyel. C'est loin ?"],
+   ["Passant","Non, pas du tout ! Sortez du métro et allez tout droit."],
+   ["Léo","D'accord. Et après ?"],
+   ["Passant","Tournez à droite au feu rouge. Puis c'est la deuxième rue à gauche."],
+   ["Léo","C'est à combien de minutes à pied ?"],
+   ["Passant","Dix minutes maximum. Vous ne pouvez pas rater !"],
+   ["Léo","Parfait, merci beaucoup !"],
+   ["Passant","Bonne soirée et bon concert !"],
+ ],
+ tf:[{q:"Léo cherche le musée du Louvre.",a:false},{q:"Il faut sortir du métro.",a:true},{q:"Il faut tourner à gauche au feu rouge.",a:false},{q:"C'est à dix minutes à pied.",a:true},{q:"Le passant dit bonne nuit.",a:false}],
+ open:[
+   {q:"Où veut aller Léo ?",model:"Il veut aller à la Salle Pleyel."},
+   {q:"Quelles sont les deux instructions pour y aller ?",model:"Aller tout droit, puis tourner à droite au feu rouge, puis prendre la deuxième rue à gauche."},
+   {q:"Combien de temps faut-il pour y aller à pied ?",model:"Il faut dix minutes à pied."},
+ ],
+ reorder:[
+   {tokens:['sortez','du','métro','et','allez','tout','droit'],answer:'sortez du métro et allez tout droit'},
+   {tokens:['tournez','à','droite','au','feu','rouge'],answer:'tournez à droite au feu rouge'},
+   {tokens:["c'est","la","deuxième","rue","à","gauche"],answer:"c'est la deuxième rue à gauche"},
+   {tokens:["vous","ne","pouvez","pas","rater","!"],answer:"vous ne pouvez pas rater !"},
+ ],
+ fill:{bank:['tout droit','à droite','à gauche','tournez','sortez'],
+   sentences:[
+     {b:"La première instruction : « ",blank:"Sortez",a:" du métro. »"},
+     {b:"Ensuite, allez ",blank:"tout droit",a:" jusqu'au premier carrefour."},
+     {b:"Au feu rouge, il faut ",blank:"tournez",a:" à droite."},
+     {b:"La salle est dans la deuxième rue ",blank:"à gauche",a:"."},
+     {b:"Si tu te perds, ",blank:"à droite",a:" après le parc, c'est correct."},
+   ]},
+ conj:{verbs:['aller','sortir'],forms:{'je':['vais','sors'],'tu':['vas','sors'],'il/elle':['va','sort'],'nous':['allons','sortons'],'vous':['allez','sortez'],'ils/elles':['vont','sortent']}},
+ writing:{
+   prompt:"Un turista et demana com anar a la Torre Eiffel des del métro Trocadéro. Explica-li el camí.",
+   starter:"— Pardon, la Tour Eiffel, c'est par où ?",
+   scaffold:["Indica la sortida del metro.","Dóna 3 instruccions de direcció.","Diga-li aproximadament quant triga a peu."],
+   minWords:35,
+   checks:["He usat almenys 3 expressions de direcció.","He usat l'imperatiu (allez, tournez, prenez).","He indicat el temps a peu.","He revisat l'ortografia."]
+ }
+},
+{id:2,emoji:'🤒',title:"À la pharmacie",color:'#FFF5F5',topic:'Símptomes i salut',level:'A1–A2',comp:'CCL, CS',
+ objective:"Aprendràs a explicar símptomes al farmacèutic i entendre les instruccions d'un medicament.",
+ dialogue:[
+   ["Léo","Bonjour, je ne me sens pas bien..."],
+   ["Farmacèutic","Qu'est-ce qui ne va pas ?"],
+   ["Léo","J'ai mal à la tête et j'ai de la fièvre depuis ce matin."],
+   ["Farmacèutic","Vous avez aussi de la toux ?"],
+   ["Léo","Oui, un peu. Et le nez qui coule."],
+   ["Farmacèutic","D'accord. Prenez ce sirop — deux cuillerées trois fois par jour."],
+   ["Léo","Et pour la fièvre ?"],
+   ["Farmacèutic","Un comprimé de paracétamol toutes les six heures. Reposez-vous bien !"],
+ ],
+ tf:[{q:"Léo a mal aux dents.",a:false},{q:"Il a de la fièvre depuis ce matin.",a:true},{q:"Il n'a pas de toux.",a:false},{q:"Le sirop se prend deux fois par jour.",a:false},{q:"Le pharmacien conseille de se reposer.",a:true}],
+ open:[
+   {q:"Quels sont les symptômes de Léo ? (almenys 3)",model:"Il a mal à la tête, de la fièvre, de la toux et le nez qui coule."},
+   {q:"Combien de cuillerées de sirop doit-il prendre et combien de fois par jour ?",model:"Il doit prendre deux cuillerées, trois fois par jour."},
+   {q:"Que doit-il prendre pour la fièvre et à quelle fréquence ?",model:"Il doit prendre un comprimé de paracétamol toutes les six heures."},
+ ],
+ reorder:[
+   {tokens:["bonjour","je","ne","me","sens","pas","bien","depuis","ce","matin"],answer:"bonjour je ne me sens pas bien depuis ce matin"},
+   {tokens:["j'ai","mal","à","la","tête","et","j'ai","de","la","fièvre"],answer:"j'ai mal à la tête et j'ai de la fièvre"},
+   {tokens:["prenez","ce","sirop","deux","cuillerées","trois","fois","par","jour"],answer:"prenez ce sirop deux cuillerées trois fois par jour"},
+   {tokens:["si","vous","n'allez","pas","mieux","dans","trois","jours","consultez","votre","médecin"],answer:"si vous n'allez pas mieux dans trois jours consultez votre médecin"},
+ ],
+ fill:{bank:['depuis ce matin','trois fois','le nez qui coule','toutes les six heures','mal à la tête'],
+   sentences:[
+     {b:"J'ai ",blank:"mal à la tête",a:" et de la fièvre."},
+     {b:"J'ai de la fièvre ",blank:"depuis ce matin",a:"."},
+     {b:"J'ai aussi ",blank:"le nez qui coule",a:"."},
+     {b:"Prenez ce sirop ",blank:"trois fois",a:" par jour."},
+     {b:"Un comprimé ",blank:"toutes les six heures",a:"."},
+   ]},
+ conj:{verbs:['avoir','se sentir'],forms:{"j'":['ai','me sens'],'tu':['as','te sens'],'il/elle':['a','se sent'],'nous':['avons','nous sentons'],'vous':['avez','vous sentez'],'ils/elles':['ont','se sentent']}},
+ writing:{
+   prompt:"El teu amic Théo es troba malament. Tria els seus símptomes i escriu el diàleg amb el farmacèutic.",
+   starter:"— Bonjour, mon ami ne se sent pas bien...",
+   scaffold:["Tria almenys 3 símptomes de la llista de sota.","El farmacèutic fa preguntes i dona instruccions.","Acaba amb la recomanació de medicaments."],
+   minWords:45,
+   symptoms:["J'ai mal à la tête","J'ai de la fièvre","J'ai de la toux","J'ai le nez bouché","J'ai mal à la gorge","J'ai mal au ventre","Je suis très fatigué","J'ai des frissons"],
+   checks:["He triat i descrit almenys 3 símptomes.","He usat expressions de freqüència (fois par jour...).","El diàleg té almenys 6 intercanvis.","He revisat els accents."]
+ }
+},
+{id:3,emoji:'🍕',title:'Au marché',color:'#EBFBEE',topic:'Mercat i alimentació',level:'A1–A2',comp:'CCL, CS',
+ objective:"Aprendràs a comprar aliments al mercat, indicar quantitats i usar els articles partitius.",
+ dialogue:[
+   ["Léo","Bonjour ! Vous avez des tomates fraîches ?"],
+   ["Venedora","Oui, regardez comme elles sont belles ! C'est 2 euros le kilo."],
+   ["Léo","Parfait. Donnez-moi un kilo, s'il vous plaît."],
+   ["Venedora","Et avec ça ?"],
+   ["Léo","Un paquet de mozzarella et du basilic frais."],
+   ["Venedora","On n'a pas de mozzarella, mais il y en a à l'épicerie d'à côté."],
+   ["Léo","D'accord. C'est combien pour les tomates et le basilic ?"],
+   ["Venedora","3,50 euros en tout. Voilà votre monnaie !"],
+ ],
+ tf:[{q:"Les tomates coûtent 3 euros le kilo.",a:false},{q:"Léo achète un kilo de tomates.",a:true},{q:"Il y a de la mozzarella au marché.",a:false},{q:"Le basilic est frais.",a:true},{q:"Le total est 5 euros.",a:false}],
+ open:[
+   {q:"Qu'est-ce que Léo veut acheter au marché ? (almenys 3 coses)",model:"Il veut acheter des tomates fraîches, de la mozzarella et du basilic frais."},
+   {q:"Pourquoi ne peut-il pas acheter la mozzarella au marché ?",model:"Parce qu'il n'y en a pas au marché — il faut aller à l'épicerie d'à côté."},
+   {q:"Combien paye-t-il en tout ?",model:"Il paye 3,50 euros en tout."},
+ ],
+ reorder:[
+   {tokens:['vous','avez','des','tomates','fraîches','?'],answer:'vous avez des tomates fraîches ?'},
+   {tokens:['donnez-moi','un','kilo','s\'il','vous','plaît'],answer:'donnez-moi un kilo s\'il vous plaît'},
+   {tokens:['du','basilic','frais'],answer:'du basilic frais'},
+   {tokens:["c'est","combien","en","tout","?"],answer:"c'est combien en tout ?"},
+ ],
+ fill:{bank:['du','de la','des','de l\'','un kilo de'],
+   sentences:[
+     {b:"Je voudrais ",blank:'du',a:" basilic frais."},
+     {b:"Il y a ",blank:'des',a:" tomates très belles."},
+     {b:"Tu veux ",blank:"de l'",a:" eau ?"},
+     {b:"J'achète ",blank:'de la',a:" mozzarella."},
+     {b:"Donnez-moi ",blank:'un kilo de',a:" tomates."},
+   ]},
+ conj:{verbs:['vouloir','acheter'],forms:{'je':['veux','achète'],'tu':['veux','achètes'],'il/elle':['veut','achète'],'nous':['voulons','achetons'],'vous':['voulez','achetez'],'ils/elles':['veulent','achètent']}},
+ writing:{
+   prompt:"Vols preparar un guacamole. Escriu la llista de la compra i el diàleg al mercat.",
+   starter:"Ma liste de courses : des avocats, ...",
+   scaffold:["Llista 4-5 ingredients amb quantitats.","Escriu el diàleg demanant els productes.","Acaba amb el pagament."],
+   minWords:40,
+   checks:["He usat l'article partitiu (du, de la, des).","He indicat quantitats precises.","El diàleg té almenys 5 intercanvis.","He revisat la concordança de gènere."]
+ }
+},
+{id:4,emoji:'🍔',title:'Au fast food',color:'#EFF6FF',topic:'Demanar menjar',level:'A1–A2',comp:'CCL, CS, CCEC',
+ objective:"Aprendràs a demanar en un fast food, triar complements i pagar, en un context proper i informal.",
+ dialogue:[
+   ["Empleada","Bonjour ! Vous désirez ?"],
+   ["Léo","Euh... je voudrais un McBaguette, s'il vous plaît."],
+   ["Empleada","En menu ou à la carte ?"],
+   ["Léo","En menu. C'est quoi comme boisson ?"],
+   ["Empleada","Coca, eau ou jus d'orange."],
+   ["Léo","Un Coca, alors. Et vous avez des frites grandes ?"],
+   ["Empleada","Oui ! Ça fait 9,50 euros au total."],
+   ["Léo","Voilà 10 euros. — Gardez la monnaie !"],
+ ],
+ tf:[{q:"Léo commande un hamburger.",a:false},{q:"Il prend le menu.",a:true},{q:"Il choisit un jus d'orange.",a:false},{q:"Il prend des frites grandes.",a:true},{q:"Le menu coûte 10 euros.",a:false}],
+ open:[
+   {q:"Qu'est-ce que Léo commande exactement ?",model:"Il commande un McBaguette en menu, avec un Coca et des grandes frites."},
+   {q:"Quelle est la différence entre 'en menu' et 'à la carte' ?",model:"En menu inclou beguda i frites, à la carte és el plat sol (més econòmic en conjunt)."},
+   {q:"Combien Léo paye-t-il et combien rend-il ?",model:"Il paye 10 euros pour un menu à 9,50 euros — il dit de garder la monnaie (0,50 euros)."},
+ ],
+ reorder:[
+   {tokens:['je','voudrais','un','McBaguette','s\'il','vous','plaît'],answer:'je voudrais un McBaguette s\'il vous plaît'},
+   {tokens:['en','menu','ou','à','la','carte','?'],answer:'en menu ou à la carte ?'},
+   {tokens:["c'est","quoi","comme","boisson","?"],answer:"c'est quoi comme boisson ?"},
+   {tokens:['gardez','la','monnaie','!'],answer:'gardez la monnaie !'},
+ ],
+ fill:{bank:["je voudrais","vous désirez","en menu","à la carte","gardez la monnaie"],
+   sentences:[
+     {b:"— Bonjour ! ",blank:'Vous désirez',a:" ?"},
+     {b:"— ",blank:'Je voudrais',a:" un McBaguette."},
+     {b:"— ",blank:'En menu',a:" ou à la carte ?"},
+     {b:"— ",blank:'À la carte',a:", s'il vous plaît."},
+     {b:"— Voilà 10 euros. ",blank:'Gardez la monnaie',a:" !"},
+   ]},
+ conj:{verbs:['vouloir','prendre'],forms:{'je':['veux','prends'],'tu':['veux','prends'],'il/elle':['veut','prend'],'nous':['voulons','prenons'],'vous':['voulez','prenez'],'ils/elles':['veulent','prennent']}},
+ writing:{
+   prompt:"Estàs amb un amic/a en un fast food parisenc. Escriu el diàleg demanant dos menús.",
+   starter:"— Bonjour ! C'est pour moi et mon ami. On voudrait...",
+   scaffold:["Demana dos menús amb begudes i mida de frites.","Pregunta si hi ha alguna cosa sense gluten o vegana.","Paga i acomiada't."],
+   minWords:50,
+   checks:["He demanat almenys 2 menús complets.","He preguntat alguna cosa extra (al·lèrgies, mida...).","El diàleg té almenys 6 intercanvis.","He revisat les formes de cortesia."]
+ }
+}
+];
+
+
+/* ── VOCAB DATA per unitat ── */
+const VOCAB = [
+  // U0: Botiga de roba
+  [
+    {fr:"un sweatshirt",ca:"una dessuadora",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="28" width="40" height="32" rx="4" fill="#C7D7FE"/><path d="M20 32 L8 36 L10 48 L20 44" fill="#94AFFE"/><path d="M60 32 L72 36 L70 48 L60 44" fill="#94AFFE"/><path d="M30 28 Q40 22 50 28" stroke="#3B5BDB" stroke-width="2" fill="none"/><rect x="34" y="24" width="12" height="6" rx="3" fill="#3B5BDB"/><line x1="20" y1="44" x2="60" y2="44" stroke="#94AFFE" stroke-width="1.5"/></svg>`},
+    {fr:"un jean",ca:"uns texans",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 20 L26 60 L38 60 L40 40 L42 60 L54 60 L58 20 Z" fill="#3B5BDB"/><path d="M22 20 L58 20 L56 28 L24 28 Z" fill="#2244C4"/><line x1="40" y1="28" x2="40" y2="60" stroke="#2244C4" stroke-width="1.5"/><rect x="30" y="21" width="8" height="4" rx="1" fill="#94AFFE"/></svg>`},
+    {fr:"des baskets",ca:"unes sabatilles",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="52" rx="26" ry="10" fill="#E9ECEF"/><path d="M16 52 Q20 38 32 36 L52 34 Q60 34 64 40 L66 52 Z" fill="#fff" stroke="#C7D7FE" stroke-width="1.5"/><path d="M32 36 L34 46" stroke="#94AFFE" stroke-width="2"/><path d="M38 35 L40 46" stroke="#94AFFE" stroke-width="2"/><path d="M44 34 L46 46" stroke="#94AFFE" stroke-width="2"/><path d="M16 52 L66 52" stroke="#C7D7FE" stroke-width="2"/><path d="M52 34 Q62 30 66 40" stroke="#3B5BDB" stroke-width="2" fill="none"/></svg>`},
+    {fr:"une veste",ca:"una jaqueta",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 20 L16 30 L18 56 L36 56 L36 28 Z" fill="#94AFFE"/><path d="M56 20 L64 30 L62 56 L44 56 L44 28 Z" fill="#94AFFE"/><path d="M24 20 L36 28 L40 24 L44 28 L56 20 L52 14 L40 18 L28 14 Z" fill="#C7D7FE"/><rect x="36" y="28" width="8" height="28" fill="#B5D4F4"/><circle cx="40" cy="36" r="2" fill="#3B5BDB"/><circle cx="40" cy="44" r="2" fill="#3B5BDB"/></svg>`},
+    {fr:"un t-shirt",ca:"una camiseta",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28 20 L16 32 L24 36 L24 58 L56 58 L56 36 L64 32 L52 20 Q46 16 40 16 Q34 16 28 20 Z" fill="#EEF3FF" stroke="#C7D7FE" stroke-width="1.5"/><path d="M28 20 Q34 26 40 26 Q46 26 52 20" stroke="#C7D7FE" stroke-width="1.5" fill="none"/></svg>`},
+    {fr:"une taille",ca:"una talla",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="20" width="24" height="40" rx="4" fill="#EEF3FF" stroke="#C7D7FE" stroke-width="1.5"/><text x="40" y="38" text-anchor="middle" font-size="11" font-weight="bold" fill="#3B5BDB">S</text><text x="40" y="52" text-anchor="middle" font-size="9" fill="#94AFFE">M L XL</text></svg>`},
+    {fr:"la caisse",ca:"la caixa",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="16" y="28" width="48" height="30" rx="4" fill="#EEF3FF" stroke="#C7D7FE" stroke-width="1.5"/><rect x="22" y="34" width="20" height="12" rx="2" fill="#C7D7FE"/><rect x="48" y="36" width="8" height="3" rx="1" fill="#94AFFE"/><rect x="48" y="42" width="8" height="3" rx="1" fill="#94AFFE"/><rect x="22" y="20" width="36" height="8" rx="2" fill="#3B5BDB"/><text x="40" y="27" text-anchor="middle" font-size="8" fill="white" font-weight="bold">€</text></svg>`},
+    {fr:"en promo",ca:"en oferta",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="26" fill="#FFF4E6"/><circle cx="40" cy="40" r="22" fill="none" stroke="#E8590C" stroke-width="2" stroke-dasharray="4 2"/><text x="40" y="38" text-anchor="middle" font-size="10" font-weight="bold" fill="#E8590C">-30%</text><text x="40" y="50" text-anchor="middle" font-size="8" fill="#C4420A">PROMO</text></svg>`},
+  ],
+  // U1: Metro i direccions
+  [
+    {fr:"tout droit",ca:"recte",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="40" y1="64" x2="40" y2="20" stroke="#3B5BDB" stroke-width="3" stroke-linecap="round"/><path d="M32 28 L40 18 L48 28" fill="#3B5BDB"/><rect x="36" y="50" width="8" height="8" rx="1" fill="#C7D7FE"/></svg>`},
+    {fr:"à gauche",ca:"a l'esquerra",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M60 40 L28 40" stroke="#3B5BDB" stroke-width="3" stroke-linecap="round"/><path d="M36 32 L26 40 L36 48" fill="#3B5BDB"/><path d="M40 40 L40 24" stroke="#C7D7FE" stroke-width="2" stroke-linecap="round"/></svg>`},
+    {fr:"à droite",ca:"a la dreta",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 40 L52 40" stroke="#3B5BDB" stroke-width="3" stroke-linecap="round"/><path d="M44 32 L54 40 L44 48" fill="#3B5BDB"/><path d="M40 40 L40 24" stroke="#C7D7FE" stroke-width="2" stroke-linecap="round"/></svg>`},
+    {fr:"le métro",ca:"el metro",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="30" width="52" height="28" rx="10" fill="#3B5BDB"/><rect x="18" y="34" width="18" height="12" rx="4" fill="#C7D7FE"/><rect x="44" y="34" width="18" height="12" rx="4" fill="#C7D7FE"/><circle cx="24" cy="60" r="5" fill="#2244C4"/><circle cx="56" cy="60" r="5" fill="#2244C4"/><rect x="10" y="56" width="60" height="4" rx="2" fill="#1B3BAA"/><text x="40" y="27" text-anchor="middle" font-size="10" font-weight="bold" fill="#3B5BDB">M</text></svg>`},
+    {fr:"le feu rouge",ca:"el semàfor",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="30" y="14" width="20" height="48" rx="6" fill="#333"/><circle cx="40" cy="26" r="7" fill="#ff4444"/><circle cx="40" cy="40" r="7" fill="#555"/><circle cx="40" cy="54" r="7" fill="#555"/><rect x="38" y="62" width="4" height="8" fill="#555"/></svg>`},
+    {fr:"la sortie",ca:"la sortida",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="18" y="20" width="44" height="44" rx="4" fill="#EEF3FF" stroke="#C7D7FE" stroke-width="1.5"/><path d="M36 40 L52 40" stroke="#3B5BDB" stroke-width="2.5" stroke-linecap="round"/><path d="M46 34 L54 40 L46 46" fill="#3B5BDB"/><rect x="22" y="28" width="10" height="24" rx="2" fill="#C7D7FE"/><circle cx="30" cy="40" r="2" fill="#3B5BDB"/></svg>`},
+    {fr:"la rue",ca:"el carrer",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="48" width="60" height="20" fill="#aaa"/><line x1="40" y1="48" x2="40" y2="68" stroke="#fff" stroke-width="2" stroke-dasharray="4 4"/><rect x="14" y="20" width="18" height="28" fill="#C7D7FE" rx="2"/><rect x="48" y="24" width="18" height="24" fill="#94AFFE" rx="2"/><rect x="18" y="34" width="6" height="8" fill="#fff" rx="1"/><rect x="52" y="34" width="6" height="8" fill="#fff" rx="1"/></svg>`},
+    {fr:"le carrefour",ca:"la cruïlla",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="34" y="10" width="12" height="60" rx="2" fill="#ddd"/><rect x="10" y="34" width="60" height="12" rx="2" fill="#ddd"/><rect x="36" y="10" width="8" height="60" rx="1" fill="#bbb"/><rect x="10" y="36" width="60" height="8" rx="1" fill="#bbb"/><circle cx="40" cy="40" r="6" fill="#fff" stroke="#888" stroke-width="1.5"/></svg>`},
+  ],
+  // U2: Farmàcia i salut
+  [
+    {fr:"j'ai de la fièvre",ca:"tinc febre",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="34" y="16" width="12" height="36" rx="6" fill="#C7D7FE" stroke="#94AFFE" stroke-width="1.5"/><rect x="37" y="34" width="6" height="14" rx="3" fill="#E8590C"/><ellipse cx="40" cy="54" rx="9" ry="9" fill="#E8590C"/><line x1="46" y1="20" x2="50" y2="16" stroke="#E8590C" stroke-width="1.5"/><line x1="46" y1="24" x2="51" y2="22" stroke="#E8590C" stroke-width="1.5"/></svg>`},
+    {fr:"j'ai mal à la tête",ca:"em fa mal el cap",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="36" r="20" fill="#EEF3FF" stroke="#C7D7FE" stroke-width="1.5"/><path d="M33 42 Q40 46 47 42" stroke="#94AFFE" stroke-width="1.5" fill="none"/><circle cx="33" cy="36" r="2.5" fill="#3B5BDB"/><circle cx="47" cy="36" r="2.5" fill="#3B5BDB"/><path d="M30 28 Q40 20 50 28" stroke="#E8590C" stroke-width="2" fill="none"/><path d="M35 26 L36 22 M40 24 L40 20 M45 26 L44 22" stroke="#E8590C" stroke-width="1.5"/></svg>`},
+    {fr:"la toux",ca:"la tos",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="36" cy="32" r="14" fill="#EEF3FF" stroke="#C7D7FE" stroke-width="1.5"/><path d="M30 36 Q36 40 42 36" stroke="#94AFFE" stroke-width="1.5" fill="none"/><circle cx="31" cy="30" r="2" fill="#3B5BDB"/><circle cx="41" cy="30" r="2" fill="#3B5BDB"/><path d="M36 46 L36 58 M28 52 L44 52" stroke="#E8590C" stroke-width="2" stroke-linecap="round"/><path d="M44 56 L50 62 M56 56 L50 62" stroke="#E8590C" stroke-width="2" stroke-linecap="round"/></svg>`},
+    {fr:"un sirop",ca:"un xarop",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="26" width="24" height="36" rx="4" fill="#FFF5F5" stroke="#FFC9C9" stroke-width="1.5"/><rect x="32" y="18" width="16" height="10" rx="3" fill="#E9ECEF" stroke="#ddd" stroke-width="1"/><rect x="30" y="34" width="20" height="14" rx="2" fill="#FFC9C9"/><text x="40" y="44" text-anchor="middle" font-size="7" fill="#9B1C1C" font-weight="bold">SIROP</text></svg>`},
+    {fr:"un comprimé",ca:"un comprimit",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="40" rx="22" ry="14" fill="#EEF3FF" stroke="#C7D7FE" stroke-width="1.5"/><line x1="18" y1="40" x2="62" y2="40" stroke="#3B5BDB" stroke-width="1.5"/><ellipse cx="40" cy="40" rx="22" ry="14" fill="none" stroke="#94AFFE" stroke-width="1"/></svg>`},
+    {fr:"le nez qui coule",ca:"mocs",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="32" r="18" fill="#EEF3FF" stroke="#C7D7FE" stroke-width="1.5"/><ellipse cx="40" cy="38" rx="7" ry="5" fill="#ffd6d6"/><circle cx="37" cy="38" r="2" fill="#888"/><circle cx="43" cy="38" r="2" fill="#888"/><path d="M37 43 Q40 62 40 62" stroke="#94AFFE" stroke-width="2.5" stroke-linecap="round"/></svg>`},
+    {fr:"la pharmacie",ca:"la farmàcia",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="16" y="28" width="48" height="38" rx="4" fill="#EEF3FF" stroke="#C7D7FE" stroke-width="1.5"/><rect x="28" y="40" width="24" height="18" rx="2" fill="#fff" stroke="#C7D7FE" stroke-width="1"/><path d="M28 14 L52 14 L58 28 L22 28 Z" fill="#2F9E44"/><text x="40" y="24" text-anchor="middle" font-size="11" fill="white" font-weight="bold">✚</text><rect x="36" y="42" width="8" height="14" rx="1" fill="#B2F2BB"/><rect x="32" y="46" width="16" height="6" rx="1" fill="#B2F2BB"/></svg>`},
+    {fr:"se reposer",ca:"descansar",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="42" width="56" height="20" rx="6" fill="#C7D7FE"/><rect x="12" y="36" width="14" height="26" rx="6" fill="#94AFFE"/><ellipse cx="22" cy="36" rx="10" ry="10" fill="#EEF3FF" stroke="#C7D7FE" stroke-width="1.5"/><path d="M17 38 Q22 42 27 38" stroke="#94AFFE" stroke-width="1.5" fill="none"/><circle cx="19" cy="35" r="1.5" fill="#3B5BDB"/><circle cx="25" cy="35" r="1.5" fill="#3B5BDB"/></svg>`},
+  ],
+  // U3: Mercat i alimentació
+  [
+    {fr:"des tomates",ca:"tomàquets",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="38" cy="46" r="16" fill="#ff6b6b" stroke="#e03131" stroke-width="1.5"/><circle cx="52" cy="42" r="14" fill="#fa5252" stroke="#e03131" stroke-width="1.5"/><path d="M38 30 Q40 22 36 20 M42 30 Q44 20 48 22" stroke="#2F9E44" stroke-width="2" fill="none" stroke-linecap="round"/></svg>`},
+    {fr:"du basilic",ca:"alfàbrega",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="36" y="40" width="4" height="24" rx="2" fill="#5c7a29"/><ellipse cx="38" cy="36" rx="10" ry="14" fill="#69db7c" stroke="#2F9E44" stroke-width="1.5"/><ellipse cx="28" cy="40" rx="8" ry="11" fill="#69db7c" stroke="#2F9E44" stroke-width="1.5" transform="rotate(-20 28 40)"/><ellipse cx="48" cy="40" rx="8" ry="11" fill="#69db7c" stroke="#2F9E44" stroke-width="1.5" transform="rotate(20 48 40)"/></svg>`},
+    {fr:"du pain",ca:"pa",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="46" rx="28" ry="16" fill="#f59f00" stroke="#e67700" stroke-width="1.5"/><ellipse cx="40" cy="40" rx="24" ry="12" fill="#ffd43b"/><path d="M24 42 Q32 34 40 38 Q48 34 56 42" stroke="#e67700" stroke-width="1.5" fill="none"/></svg>`},
+    {fr:"un kilo",ca:"un quilo",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 52 L24 32 L56 32 L60 52 Z" fill="#EEF3FF" stroke="#C7D7FE" stroke-width="1.5"/><rect x="16" y="52" width="48" height="6" rx="3" fill="#94AFFE"/><rect x="30" y="22" width="20" height="12" rx="2" fill="#C7D7FE"/><path d="M36 22 L36 18 M44 22 L44 18" stroke="#94AFFE" stroke-width="1.5"/><text x="40" y="45" text-anchor="middle" font-size="9" fill="#3B5BDB" font-weight="bold">1 kg</text></svg>`},
+    {fr:"la monnaie",ca:"el canvi",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="44" r="14" fill="#ffd43b" stroke="#e67700" stroke-width="1.5"/><circle cx="50" cy="40" r="12" fill="#ffd43b" stroke="#e67700" stroke-width="1.5"/><circle cx="44" cy="56" r="10" fill="#ffe066" stroke="#e67700" stroke-width="1.5"/><text x="32" y="48" text-anchor="middle" font-size="9" fill="#7b5e00" font-weight="bold">€</text><text x="50" y="44" text-anchor="middle" font-size="9" fill="#7b5e00" font-weight="bold">€</text></svg>`},
+    {fr:"le marché",ca:"el mercat",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="36" width="60" height="30" rx="2" fill="#EEF3FF" stroke="#C7D7FE" stroke-width="1.5"/><path d="M10 36 L16 20 L64 20 L70 36" fill="#3B5BDB" stroke="#2244C4" stroke-width="1"/><rect x="14" y="40" width="14" height="18" rx="2" fill="#C7D7FE"/><rect x="33" y="40" width="14" height="18" rx="2" fill="#94AFFE"/><rect x="52" y="40" width="14" height="18" rx="2" fill="#C7D7FE"/><circle cx="22" cy="30" r="4" fill="#fa5252"/><circle cx="40" cy="28" r="4" fill="#69db7c"/><circle cx="58" cy="30" r="4" fill="#ffd43b"/></svg>`},
+    {fr:"frais / fraîche",ca:"fresc / fresca",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M40 16 Q52 28 52 44 A12 12 0 0 1 28 44 Q28 28 40 16Z" fill="#69db7c" stroke="#2F9E44" stroke-width="1.5"/><path d="M40 16 Q40 38 40 56" stroke="#2F9E44" stroke-width="1.5"/><path d="M34 30 Q40 34 46 30" stroke="#2F9E44" stroke-width="1" fill="none"/><path d="M32 38 Q40 42 48 38" stroke="#2F9E44" stroke-width="1" fill="none"/></svg>`},
+    {fr:"une barquette",ca:"una barceta",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 44 L22 28 L58 28 L64 44 L62 56 L18 56 Z" fill="#EEF3FF" stroke="#C7D7FE" stroke-width="1.5"/><rect x="16" y="44" width="48" height="12" rx="2" fill="#f0f4ff" stroke="#C7D7FE" stroke-width="1"/><circle cx="30" cy="38" r="5" fill="#fa5252"/><circle cx="40" cy="36" r="5" fill="#fa5252"/><circle cx="50" cy="38" r="5" fill="#fa5252"/></svg>`},
+  ],
+  // U4: Fast food
+  [
+    {fr:"un hamburger",ca:"una hamburguesa",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="26" rx="24" ry="12" fill="#f59f00" stroke="#e67700" stroke-width="1.5"/><rect x="16" y="36" width="48" height="8" fill="#69db7c"/><rect x="16" y="44" width="48" height="6" fill="#fa5252"/><rect x="16" y="50" width="48" height="6" fill="#ffd43b"/><ellipse cx="40" cy="58" rx="24" ry="8" fill="#f59f00" stroke="#e67700" stroke-width="1.5"/></svg>`},
+    {fr:"des frites",ca:"patates fregides",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="26" y="42" width="28" height="22" rx="3" fill="#e03131"/><path d="M30 42 L30 22 Q30 18 32 18 Q34 18 34 22 L34 42" fill="#ffd43b" stroke="#e67700" stroke-width="1"/><path d="M36 42 L36 18 Q36 14 38 14 Q40 14 40 18 L40 42" fill="#ffd43b" stroke="#e67700" stroke-width="1"/><path d="M42 42 L42 20 Q42 16 44 16 Q46 16 46 20 L46 42" fill="#ffd43b" stroke="#e67700" stroke-width="1"/><text x="40" y="58" text-anchor="middle" font-size="8" fill="white" font-weight="bold">FRITES</text></svg>`},
+    {fr:"un coca",ca:"una coca-cola",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M30 20 L28 64 Q28 68 32 68 L48 68 Q52 68 52 64 L50 20 Z" fill="#e03131"/><path d="M30 20 L50 20 L48 30 L32 30 Z" fill="#c92a2a"/><rect x="34" y="14" width="12" height="8" rx="2" fill="#aaa"/><text x="40" y="50" text-anchor="middle" font-size="7" fill="white" font-weight="bold">COCA</text></svg>`},
+    {fr:"un menu",ca:"un menú",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="16" y="18" width="48" height="52" rx="4" fill="#EEF3FF" stroke="#C7D7FE" stroke-width="1.5"/><rect x="20" y="24" width="40" height="6" rx="2" fill="#C7D7FE"/><line x1="20" y1="36" x2="60" y2="36" stroke="#e9ecef" stroke-width="1"/><circle cx="26" cy="44" r="4" fill="#ffd43b"/><rect x="32" y="42" width="20" height="3" rx="1" fill="#e9ecef"/><circle cx="26" cy="54" r="4" fill="#fa5252"/><rect x="32" y="52" width="20" height="3" rx="1" fill="#e9ecef"/></svg>`},
+    {fr:"la monnaie",ca:"el canvi",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="30" width="52" height="30" rx="4" fill="#EEF3FF" stroke="#C7D7FE" stroke-width="1.5"/><circle cx="32" cy="45" r="8" fill="#ffd43b" stroke="#e67700" stroke-width="1.5"/><circle cx="50" cy="45" r="8" fill="#ffd43b" stroke="#e67700" stroke-width="1.5"/><text x="32" y="49" text-anchor="middle" font-size="8" fill="#7b5e00" font-weight="bold">€</text><text x="50" y="49" text-anchor="middle" font-size="8" fill="#7b5e00" font-weight="bold">€</text></svg>`},
+    {fr:"à la carte",ca:"per separat",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="16" width="40" height="52" rx="4" fill="#fff" stroke="#C7D7FE" stroke-width="1.5"/><rect x="24" y="22" width="32" height="5" rx="2" fill="#3B5BDB"/><line x1="24" y1="33" x2="56" y2="33" stroke="#e9ecef" stroke-width="1.5"/><line x1="24" y1="41" x2="56" y2="41" stroke="#e9ecef" stroke-width="1.5"/><line x1="24" y1="49" x2="56" y2="49" stroke="#e9ecef" stroke-width="1.5"/><line x1="24" y1="57" x2="44" y2="57" stroke="#e9ecef" stroke-width="1.5"/></svg>`},
+    {fr:"désirer",ca:"desitjar / voler",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M40 56 L20 36 Q16 26 26 22 Q33 18 40 28 Q47 18 54 22 Q64 26 60 36 Z" fill="#fa5252" stroke="#c92a2a" stroke-width="1.5"/></svg>`},
+    {fr:"garder la monnaie",ca:"quedar-se el canvi",svg:`<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 40 L38 40 L38 28 Q38 22 44 22 Q50 22 50 28 L50 40 L58 40 L58 56 L22 56 Z" fill="#EEF3FF" stroke="#C7D7FE" stroke-width="1.5"/><circle cx="40" cy="48" r="5" fill="#ffd43b" stroke="#e67700" stroke-width="1"/><text x="40" y="51" text-anchor="middle" font-size="7" fill="#7b5e00" font-weight="bold">€</text></svg>`},
+  ],
+];
+
+const S={
+  started:false,current:0,
+  completed:new Array(5).fill(false),
+  unlocked:[true,false,false,false,false],
+  pts:new Array(5).fill(0),
+  exPts:UNITS.map(()=>({})),
+  tf:UNITS.map(u=>new Array(u.tf.length).fill(null)),
+  open:UNITS.map(u=>new Array(u.open.length).fill('')),
+  reorder:UNITS.map(u=>u.reorder.map(()=>[])),
+  reorderShuffled:null,
+  fill:UNITS.map(u=>new Array(u.fill.sentences.length).fill('')),
+  conj:UNITS.map(u=>{const o={};Object.keys(u.conj.forms).forEach(p=>{o[p]=u.conj.verbs.map(()=>'');});return o;}),
+  writing:new Array(5).fill(''),
+  checks:UNITS.map(u=>new Array(u.writing.checks.length).fill(false)),
+  conjStarted:new Array(5).fill(false),
+  conjSecondsLeft:new Array(5).fill(60),
+  memMatched:new Array(5).fill(null).map(()=>[]),
+  symChecked:UNITS.map(()=>[]),
+};
+
+function ensureShuffled(){
+  if(!S.reorderShuffled)S.reorderShuffled=UNITS.map(u=>u.reorder.map(item=>shuf(item.tokens.slice())));
+}
+
+function startApp(){
+  const n=document.getElementById('s-name').value.trim();
+  const g=document.getElementById('s-group').value.trim();
+  const d=document.getElementById('s-date').value;
+  if(!n||!g||!d){document.getElementById('cover-err').style.display='block';return;}
+  STU.name=n;STU.group=g;STU.date=d;
+  document.getElementById('cover').style.display='none';
+  document.querySelector('header').style.display='block';
+  document.querySelector('.nav-wrap').style.display='block';
+  document.getElementById('app').style.display='block';
+  document.getElementById('pdf-bar').classList.add('show');
+  document.getElementById('student-tag').innerHTML=`<strong>${n}</strong><br>${g} · ${d}`;
+  S.started=true;
+  ensureShuffled();
+  buildNav();
+  updateScoreHeader();
+  showUnit(0);
+}
+
+function updateScoreHeader(){
+  const sb=document.getElementById('sb-header');
+  if(!sb)return;
+  sb.style.display='flex';
+  sb.innerHTML=UNITS.map((u2,i)=>`<div style="flex:1;min-width:70px;background:${S.completed[i]?'rgba(5,150,105,0.15)':'rgba(255,255,255,0.08)'};border-radius:10px;padding:5px 6px;text-align:center;border:1px solid ${S.completed[i]?'rgba(5,150,105,0.3)':'rgba(255,255,255,0.12)'};${!S.unlocked[i]?'opacity:0.4':''}"><div style="font-size:1rem">${u2.emoji}</div><div style="font-size:0.95rem;font-weight:800;color:${S.completed[i]?'#6EE7B7':'#DBEAFE'}">${S.pts[i]}</div><div style="font-size:0.65rem;color:rgba(255,255,255,0.5)">pts</div></div>`).join('');
+}
+
+function buildNav(){
+  const nav=document.getElementById('unit-nav');
+  nav.innerHTML=UNITS.map((u,i)=>`<button id="nav-btn-${i}" onclick="showUnit(${i})" ${!S.unlocked[i]?'disabled':''} class="${i===S.current?'active':''}">${u.emoji} ${u.title}${S.completed[i]?' <span class="nav-ck">✓</span>':(!S.unlocked[i]?' <span class="nav-lock">🔒</span>':'')}</button>`).join('');
+}
+
+function showUnit(idx){
+  if(!S.unlocked[idx])return;
+  clearInterval(conjTimerInterval);conjTimerInterval=null;
+  S.current=idx;
+  buildNav();
+  updateScoreHeader();
+  renderUnit(idx);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function renderUnit(idx){
+  const u=UNITS[idx];
+  let html=`
+  <div class="leo-bubble"><div class="leo-av">🧑</div><div class="leo-msg"><div class="leo-name">Léo</div>${S.completed[idx]?LEO_MSGS[idx].done:LEO_MSGS[idx].intro}</div></div>
+  <div class="uh"><div class="uh-icon" style="background:${u.color}">${u.emoji}</div><div><h2>Missió ${idx+1} — ${u.title}</h2><div class="uh-meta"><span class="mp">${u.topic}</span><span class="mp">Nivell ${u.level}</span><span class="mp">${u.comp}</span></div></div></div>
+  <div class="unit-obj"><strong>Objectiu</strong>${u.objective}</div>
+  <div class="dlg"><div class="dlg-top"><h3>Llegeix el diàleg — Léo necessita la teva ajuda!</h3><div class="dlg-btns"><button class="dl-all" onclick="speakAllDlg(${idx})">🔊 Escolta el diàleg</button><button class="dl-stop" onclick="stopTTS()" title="Atura">⏹</button></div></div>${u.dialogue.map(([sp,txt],li)=>`<div class="dl" id="dl-${idx}-${li}"><span class="sp">${sp}</span><span class="dl-txt">${txt}</span><button class="dl-spk" onclick="speakDlg(${idx},${li})" title="Escolta aquesta frase">🔊</button></div>`).join('')}</div>`;
+
+  html+=renderVocab(idx);
+  html+=renderTF(idx);
+  html+=renderOpen(idx);
+  html+=renderReorder(idx);
+  html+=renderFill(idx);
+  html+=renderConj(idx);
+  html+=renderWriting(idx);
+
+  if(S.completed[idx]){
+    const next=idx+1;
+    html+=`<div class="done-banner"><div class="db-icon">🎉</div><h3>Missió completada! +${S.pts[idx]} punts</h3><p>${LEO_MSGS[idx].done}</p>${next<5?`<button class="btn-next" onclick="showUnit(${next})">Missió ${next+1} →</button>`:'<p style="margin-top:0.5rem;font-weight:700">Has completat totes les missions! 🏆</p>'}</div>`;
+  }
+
+  document.getElementById('app').innerHTML=html;
+  document.getElementById('pts-total').textContent=S.pts.reduce((a,b)=>a+b,0)+' pts';
+}
+
+
+/* ── VOCAB ── */
+function renderVocab(idx){
+  const words=VOCAB[idx];
+  const grid=words.map((w,i)=>`<div class="vocab-card" onclick="speakVocab(${idx},${i})" title="Toca per escoltar"><div class="vc-img">${w.svg}</div><div class="vc-label"><span class="vc-fr">${w.fr}</span><span class="vc-ca">${w.ca}</span></div></div>`).join('');
+  // Mem game: pick 6 random words, make pairs img+word
+  const pick=shuf(words.slice()).slice(0,Math.min(6,words.length));
+  const memId=`mem-${idx}`;
+  return `<div class="vocab-section">
+  <div class="vocab-header"><h3>📖 Vocabulari clau <span class="vocab-tag">${words.length} paraules</span></h3></div>
+  <div class="vocab-grid">${grid}</div>
+  <div class="mem-game" id="${memId}">
+    <div class="mem-header"><h4>🎮 Joc de memòria — encaixa la imatge amb la paraula</h4><div class="mem-info">Parelles: <span class="mem-pairs" id="mp-${idx}">0/${pick.length}</span></div></div>
+    <div class="mem-grid" id="mg-${idx}">${buildMemCards(pick,idx)}</div>
+    <div id="mem-done-${idx}"></div>
+  </div>
+</div>`;
+}
+
+let memState={};
+function buildMemCards(pick,idx){
+  const items=[...pick.map((w,i)=>({id:i,type:'img',svg:w.svg,fr:w.fr})),...pick.map((w,i)=>({id:i,type:'word',fr:w.fr,ca:w.ca}))];
+  if(!memState[idx]||memState[idx].pick.length!==pick.length){
+    shuf(items);
+    const saved=S.memMatched[idx]||[];
+    memState[idx]={pick,items,selected:null,matched:[...saved],errors:0};
+  }
+  const ms=memState[idx];
+  return ms.items.map((item,pos)=>{
+    const isMatched=ms.matched.includes(item.id);
+    return `<div class="mc${isMatched?' matched':''}" id="mc-${idx}-${pos}" onclick="memClick(${idx},${pos})">${item.type==='img'?`<div class="mc-img">${item.svg}</div>`:`<div class="mc-w">${item.fr}</div><div class="mc-t">${item.ca}</div>`}</div>`;
+  }).join('');
+}
+function memClick(idx,pos){
+  const ms=memState[idx];if(!ms)return;
+  const item=ms.items[pos];
+  const el=document.getElementById(`mc-${idx}-${pos}`);
+  if(!el||el.classList.contains('matched'))return;
+  if(ms.selected===null){
+    ms.selected={pos,item};el.classList.add('active');
+  } else {
+    const prev=ms.selected;
+    if(prev.pos===pos){ms.selected=null;el.classList.remove('active');return;}
+    const match=prev.item.id===item.id&&prev.item.type!==item.type;
+    if(match){
+      el.classList.add('matched');
+      document.getElementById(`mc-${idx}-${prev.pos}`).classList.remove('active');
+      document.getElementById(`mc-${idx}-${prev.pos}`).classList.add('matched');
+      ms.matched.push(item.id);S.memMatched[idx]=[...ms.matched];ms.selected=null;
+      speakFr(item.fr);
+      const pairEl=document.getElementById(`mp-${idx}`);
+      if(pairEl)pairEl.textContent=`${ms.matched.length}/${ms.pick.length}`;
+      if(ms.matched.length===ms.pick.length){
+        const done=document.getElementById(`mem-done-${idx}`);
+        if(done)done.innerHTML=`<div class="mem-done">🎉 Perfecte! Has encaixat totes les parelles.</div>`;
+      }
+    } else {
+      el.classList.add('wrong');
+      document.getElementById(`mc-${idx}-${prev.pos}`).classList.add('wrong');
+      ms.errors++;ms.selected=null;
+      setTimeout(()=>{
+        el.classList.remove('wrong','active');
+        const pe=document.getElementById(`mc-${idx}-${prev.pos}`);
+        if(pe)pe.classList.remove('wrong','active');
+      },700);
+    }
+  }
+}
+
+/* ── TF ── */
+function renderTF(idx){
+  const u=UNITS[idx],ans=S.tf[idx];
+  let h=`<div class="ex"><div class="exh"><div class="exn">1</div><h3>Vertader (V) o Fals (F)?</h3><span class="ext">Comprensió</span></div>`;
+  u.tf.forEach((item,i)=>{
+    const sv=ans[i]===true?'sv':'',sf=ans[i]===false?'sf2':'';
+    h+=`<div class="tf-row" id="tfr-${idx}-${i}"><span class="tf-q">${i+1}. ${item.q}</span><div class="tf-btns"><button class="tb ${sv}" onclick="tfClick(${idx},${i},true)">V</button><button class="tb ${sf}" onclick="tfClick(${idx},${i},false)">F</button></div></div>`;
+  });
+  h+=`<div class="acts"><button class="btn-ck" onclick="checkTF(${idx})">Comprovar</button><button class="btn-rs" onclick="resetTF(${idx})">Reiniciar</button><span id="tf-sc-${idx}"></span></div></div>`;
+  return h;
+}
+function tfClick(idx,i,val){
+  S.tf[idx][i]=val;
+  const row=document.getElementById(`tfr-${idx}-${i}`);if(!row)return;
+  const btns=row.querySelectorAll('.tb');
+  btns[0].className='tb'+(val===true?' sv':'');
+  btns[1].className='tb'+(val===false?' sf2':'');
+}
+function checkTF(idx){
+  const u=UNITS[idx];let c=0;
+  u.tf.forEach((item,i)=>{
+    const row=document.getElementById(`tfr-${idx}-${i}`);if(!row)return;
+    const btns=row.querySelectorAll('.tb');
+    const ans=S.tf[idx][i];if(ans===null)return;
+    const ok=ans===item.a;if(ok)c++;
+    row.classList.remove('correct','wrong','anim-correct','anim-wrong');
+    void row.offsetWidth;
+    row.classList.add(ok?'correct':'wrong',ok?'anim-correct':'anim-wrong');
+    btns[0].className='tb'+(ans===true?(item.a===true?' ok':' ko'):'');
+    btns[1].className='tb'+(ans===false?(item.a===false?' ok':' ko'):'');
+  });
+  const done=S.tf[idx].filter(v=>v!==null).length;if(!done)return;
+  const pct=Math.round((c/u.tf.length)*100);
+  const cl=pct>=80?'sc-g':pct>=50?'sc-a':'sc-r';
+  document.getElementById(`tf-sc-${idx}`).innerHTML=`<span class="sc ${cl}">${c}/${u.tf.length} · ${pct}%</span>`;
+  addPts(idx,c,1);
+}
+function resetTF(idx){S.tf[idx]=new Array(UNITS[idx].tf.length).fill(null);renderUnit(idx);}
+
+/* ── OPEN ── */
+function renderOpen(idx){
+  const u=UNITS[idx];
+  let h=`<div class="ex"><div class="exh"><div class="exn">2</div><h3>Respon les preguntes</h3><span class="ext">Comprensió</span></div>`;
+  u.open.forEach((item,i)=>{
+    h+=`<div class="oq"><span class="oq-lbl">${i+1}. ${item.q}</span><textarea id="oq-${idx}-${i}" placeholder="Escriu la teva resposta..." rows="2" oninput="S.open[${idx}][${i}]=this.value">${S.open[idx][i]}</textarea><div class="model-ans" id="ma-${idx}-${i}"><strong>Resposta model:</strong> ${item.model}</div></div>`;
+  });
+  h+=`<div class="acts"><button class="btn-sh" onclick="showModels(${idx})">Veure respostes model</button></div></div>`;
+  return h;
+}
+function showModels(idx){
+  if(!S.open[idx].every(v=>v.trim().length>2)){alert('Escriu primer la teva resposta a totes les preguntes.');return;}
+  UNITS[idx].open.forEach((_,i)=>{const el=document.getElementById(`ma-${idx}-${i}`);if(el)el.classList.add('show');});
+}
+
+/* ── REORDER ── */
+function renderReorder(idx){
+  const u=UNITS[idx];
+  let h=`<div class="ex"><div class="exh"><div class="exn">3</div><h3>Ordena les paraules</h3><span class="ext">Sintaxi</span></div><p class="reorder-prompt">Fes clic a les paraules per posar-les en ordre. Fes clic a una paraula de la resposta per treure-la.</p>`;
+  u.reorder.forEach((item,ri)=>{
+    const placed=S.reorder[idx][ri]||[];
+    const shuffled=S.reorderShuffled[idx][ri];
+    h+=`<div class="reorder-item"><div class="ri-q">Frase ${ri+1}:</div><div class="word-tokens" id="wt-${idx}-${ri}">${shuffled.map(t=>`<span class="wt${placed.includes(t)?' used':''}" onclick="reorderAdd(${idx},${ri},'${t.replace(/'/g,"\\'")}',this)">${t}</span>`).join('')}</div><div class="reorder-answer" id="ra-${idx}-${ri}">${placed.map(t=>`<span class="ans-token" onclick="reorderRemove(${idx},${ri},'${t.replace(/'/g,"\\'")}',this)">${t}</span>`).join('')}${placed.length===0?'<span style="color:#bbb;font-size:0.8rem">Fes clic a les paraules...</span>':''}</div></div>`;
+  });
+  h+=`<div class="acts"><button class="btn-ck" onclick="checkReorder(${idx})">Comprovar</button><button class="btn-rs" onclick="resetReorder(${idx})">Reiniciar</button><span id="ro-sc-${idx}"></span></div></div>`;
+  return h;
+}
+function reorderAdd(idx,ri,token,el){
+  if(!S.reorder[idx][ri])S.reorder[idx][ri]=[];
+  S.reorder[idx][ri].push(token);el.classList.add('used');
+  const ra=document.getElementById(`ra-${idx}-${ri}`);
+  if(ra){const ph=ra.querySelector('span[style]');if(ph)ph.remove();const at=document.createElement('span');at.className='ans-token';at.textContent=token;at.onclick=function(){reorderRemove(idx,ri,token,at);};ra.appendChild(at);}
+}
+function reorderRemove(idx,ri,token,el){
+  const arr=S.reorder[idx][ri]||[];const i=arr.indexOf(token);if(i>-1)arr.splice(i,1);el.remove();
+  const wts=document.querySelectorAll(`#wt-${idx}-${ri} .wt`);let done=false;
+  wts.forEach(w=>{if(!done&&w.textContent===token&&w.classList.contains('used')){w.classList.remove('used');done=true;}});
+  const ra=document.getElementById(`ra-${idx}-${ri}`);
+  if(ra&&ra.querySelectorAll('.ans-token').length===0){const ph=document.createElement('span');ph.style.cssText='color:#bbb;font-size:0.8rem';ph.textContent='Fes clic a les paraules...';ra.appendChild(ph);}
+}
+function checkReorder(idx){
+  const u=UNITS[idx];let c=0;
+  u.reorder.forEach((item,ri)=>{
+    const ans=(S.reorder[idx][ri]||[]).join(' ').toLowerCase().trim();
+    const ok=ans===item.answer.toLowerCase().trim();if(ok)c++;
+    const ra=document.getElementById(`ra-${idx}-${ri}`);if(ra){ra.classList.remove('ok','ko');ra.classList.add(ok?'ok':'ko');}
+  });
+  const pct=Math.round((c/u.reorder.length)*100);
+  const cl=pct>=80?'sc-g':pct>=50?'sc-a':'sc-r';
+  document.getElementById(`ro-sc-${idx}`).innerHTML=`<span class="sc ${cl}">${c}/${u.reorder.length} · ${pct}%</span>`;
+  addPts(idx,c,2);
+}
+function resetReorder(idx){S.reorder[idx]=UNITS[idx].reorder.map(()=>[]);renderUnit(idx);}
+
+/* ── FILL ── */
+function renderFill(idx){
+  const u=UNITS[idx];
+  let h=`<div class="ex"><div class="exh"><div class="exn">4</div><h3>Completa les frases</h3><span class="ext">Gramàtica</span></div><div class="wb" id="wb-${idx}">`;
+  u.fill.bank.forEach((w,wi)=>{
+    const used=S.fill[idx].map(v=>v.trim().toLowerCase()).includes(w.toLowerCase());
+    h+=`<span class="wc${used?' used':''}" id="wchip-${idx}-${wi}" onclick="useWord(${idx},${wi},'${w.replace(/'/g,"\\'")}',this)">${w}</span>`;
+  });
+  h+=`</div>`;
+  u.fill.sentences.forEach((s,si)=>{
+    h+=`<div class="fill-item">${s.b}<input type="text" class="fi" id="fi-${idx}-${si}" value="${S.fill[idx][si]}" placeholder="..." oninput="S.fill[${idx}][${si}]=this.value">${s.a}</div>`;
+  });
+  h+=`<div class="acts"><button class="btn-ck" onclick="checkFill(${idx})">Comprovar</button><button class="btn-rs" onclick="resetFill(${idx})">Reiniciar</button><span id="fi-sc-${idx}"></span></div></div>`;
+  return h;
+}
+function useWord(idx,wi,word,chipEl){
+  const inputs=document.querySelectorAll(`[id^="fi-${idx}-"]`);
+  for(const inp of inputs){if(!inp.value.trim()){inp.value=word;S.fill[idx][parseInt(inp.id.split('-')[2])]=word;chipEl.classList.add('used');break;}}
+}
+function checkFill(idx){
+  const u=UNITS[idx];let c=0;
+  u.fill.sentences.forEach((s,si)=>{
+    const inp=document.getElementById(`fi-${idx}-${si}`);if(!inp)return;
+    const val=(inp.value||'').trim().toLowerCase();
+    const ok=val===s.blank.toLowerCase();if(ok)c++;
+    inp.className='fi'+(val?(ok?' ok':' ko'):'');
+  });
+  const done=u.fill.sentences.filter((_,si)=>S.fill[idx][si]).length;if(!done)return;
+  const pct=Math.round((c/u.fill.sentences.length)*100);
+  const cl=pct>=80?'sc-g':pct>=50?'sc-a':'sc-r';
+  document.getElementById(`fi-sc-${idx}`).innerHTML=`<span class="sc ${cl}">${c}/${u.fill.sentences.length} · ${pct}%</span>`;
+  addPts(idx,c,3);
+}
+function resetFill(idx){S.fill[idx]=new Array(UNITS[idx].fill.sentences.length).fill('');renderUnit(idx);}
+
+/* ── CONJ CHALLENGE ── */
+const CONJ_TIME=60;
+function renderConj(idx){
+  const u=UNITS[idx];
+  const started=S.conjStarted[idx];
+  const secs=S.conjSecondsLeft[idx];
+  const m=Math.floor(secs/60),s=secs%60;
+  const pct=Math.round((secs/CONJ_TIME)*100);
+  let h=`<div class="ex"><div class="exh"><div class="exn">5</div><h3>Repte de conjugació</h3><span class="ext">Gramàtica · Contrarellotge</span></div>
+  <div class="conj-challenge">
+    <div class="conj-header"><h4>Conjuga ${u.conj.verbs.join(' i ')} al present</h4><span class="conj-timer${secs<=10?' warn':''}" id="ctmr-${idx}">${m}:${s.toString().padStart(2,'0')}</span></div>
+    <div class="conj-progress"><div class="conj-progress-fill" id="cpfill-${idx}" style="width:${pct}%"></div></div>
+    <div class="conj-grid">
+      <div class="conj-grid-head">Pronom</div>`;
+  u.conj.verbs.forEach(v=>h+=`<div class="conj-grid-head">${v}</div>`);
+  Object.entries(u.conj.forms).forEach(([pron,forms])=>{
+    h+=`<div class="conj-cell">${pron}</div>`;
+    forms.forEach((f,fi)=>{
+      const saved=(S.conj[idx][pron]||[])[fi]||'';
+      const id=`ci-${idx}-${pron.replace(/['/\s]/g,'_')}-${fi}`;
+      h+=`<div class="conj-cell"><input type="text" class="conj-inp" id="${id}" value="${saved}" placeholder="..." ${!started?'disabled':''} oninput="saveConj(${idx},'${pron.replace(/'/g,"\\'")}',${fi},this.value)"></div>`;
+    });
+  });
+  h+=`</div><div class="conj-cta">`;
+  if(!started){
+    h+=`<button class="conj-start" onclick="startConjTimer(${idx})">▶ Iniciar repte</button><span class="conj-hint">Tens ${CONJ_TIME} segons — prepara't!</span>`;
+  } else {
+    h+=`<button class="btn-ck" onclick="checkConj(${idx})">Comprovar</button><button class="btn-rs" onclick="resetConj(${idx})">Reiniciar</button><span id="cj-sc-${idx}"></span>`;
+  }
+  h+=`</div></div></div>`;
+  return h;
+}
+function startConjTimer(idx){
+  S.conjStarted[idx]=true;
+  S.conjSecondsLeft[idx]=CONJ_TIME;
+  renderUnit(idx);
+  clearInterval(conjTimerInterval);
+  conjTimerInterval=setInterval(()=>{
+    S.conjSecondsLeft[idx]--;
+    const secs=S.conjSecondsLeft[idx];
+    const m=Math.floor(secs/60),s=secs%60;
+    const disp=document.getElementById(`ctmr-${idx}`);
+    const bar=document.getElementById(`cpfill-${idx}`);
+    if(disp){disp.textContent=`${m}:${s.toString().padStart(2,'0')}`;disp.className='conj-timer'+(secs<=10?' warn':'');}
+    if(bar)bar.style.width=Math.round((secs/CONJ_TIME)*100)+'%';
+    if(secs<=0){
+      clearInterval(conjTimerInterval);conjTimerInterval=null;
+      checkConj(idx);
+      const scEl=document.getElementById(`cj-sc-${idx}`);
+      if(scEl)scEl.innerHTML+=' <span style="font-size:0.75rem;color:#888">⏰ temps!</span>';
+    }
+  },1000);
+}
+function saveConj(idx,pron,fi,val){if(!S.conj[idx][pron])S.conj[idx][pron]=[];S.conj[idx][pron][fi]=val;}
+function checkConj(idx){
+  clearInterval(conjTimerInterval);conjTimerInterval=null;
+  const u=UNITS[idx];let c=0,total=0;
+  Object.entries(u.conj.forms).forEach(([pron,forms])=>{
+    forms.forEach((f,fi)=>{
+      const id=`ci-${idx}-${pron.replace(/['/\s]/g,'_')}-${fi}`;
+      const inp=document.getElementById(id);if(!inp)return;
+      total++;
+      const ok=inp.value.trim().toLowerCase()===f.toLowerCase();if(ok)c++;
+      inp.className='conj-inp'+(inp.value?(ok?' ok':' ko'):'');
+    });
+  });
+  const allTotal=Object.values(u.conj.forms).reduce((a,arr)=>a+arr.length,0);
+  const pct=Math.round((c/allTotal)*100);
+  const cl=pct>=80?'sc-g':pct>=50?'sc-a':'sc-r';
+  const scEl=document.getElementById(`cj-sc-${idx}`);
+  if(scEl)scEl.innerHTML=`<span class="sc ${cl}">${c}/${allTotal} · ${pct}%</span>`;
+  addPts(idx,c,4);
+}
+function resetConj(idx){
+  clearInterval(conjTimerInterval);conjTimerInterval=null;
+  S.conj[idx]={};S.conjStarted[idx]=false;S.conjSecondsLeft[idx]=CONJ_TIME;
+  renderUnit(idx);
+}
+
+/* ── WRITING ── */
+function renderWriting(idx){
+  const u=UNITS[idx],w=u.writing;
+  const saved=S.writing[idx];
+  const wc=saved.trim().split(/\s+/).filter(Boolean).length;
+  const steps=w.scaffold.map(s=>`<div class="ws-step">${s}</div>`).join('');
+  const checks=w.checks.map((c,ci)=>`<label class="cl-item${S.checks[idx][ci]?' checked':''}"><input type="checkbox" ${S.checks[idx][ci]?'checked':''} onchange="S.checks[${idx}][${ci}]=this.checked;this.closest('.cl-item').classList.toggle('checked',this.checked)"> ${c}</label>`).join('');
+  const sympBlock=w.symptoms?`<div style="background:#FFF5F5;border:1px solid #FFE4E6;border-radius:12px;padding:0.75rem 1rem;margin-bottom:10px;"><div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#9F1239;margin-bottom:8px;">Tria els símptomes de Théo (almenys 3)</div><div style="display:flex;flex-wrap:wrap;gap:6px;">${w.symptoms.map((sym,si)=>`<button type="button" onclick="toggleSym(${idx},${si},this)" style="padding:4px 12px;border-radius:20px;border:1.5px solid ${(S.symChecked[idx]||[]).includes(si)?'#E11D48':'#FFB3C1'};background:${(S.symChecked[idx]||[]).includes(si)?'#FFF1F2':'#fff'};color:${(S.symChecked[idx]||[]).includes(si)?'#9F1239':'#78716C'};font-size:0.81rem;font-weight:600;cursor:pointer;transition:all 0.15s;">${sym}</button>`).join('')}</div></div>`:'' ;
+  return `<div class="ex"><div class="exh"><div class="exn">6</div><h3>Producció escrita</h3><span class="ext">Escriptura lliure</span></div>
+  <div class="ws"><h4>Com fer-ho</h4><div class="ws-steps">${steps}</div></div>
+  ${sympBlock}<div class="wa">
+    <div class="wa-starter"><strong>Comença amb aquesta frase:</strong> ${w.starter}</div>
+    <textarea id="wr-${idx}" placeholder="Continua a partir d'aquí..." oninput="saveWriting(${idx},this.value)">${saved}</textarea>
+    <div class="wa-foot"><span class="wc-out${wc<w.minWords?' wc-warn':''}" id="wco-${idx}">${wc} / mínim ${w.minWords} paraules</span></div>
+  </div>
+  <div class="checklist"><h4>Comprova abans de completar la missió</h4>${checks}</div>
+  <div class="acts" style="margin-top:12px"><button class="btn-ck" onclick="markComplete(${idx})">Missió completada ✓</button></div>
+  </div>`;
+}
+function toggleSym(idx,si,el){
+  if(!S.symChecked[idx])S.symChecked[idx]=[];
+  const i=S.symChecked[idx].indexOf(si);
+  if(i>-1){S.symChecked[idx].splice(i,1);el.style.background='#fff';el.style.borderColor='#FFB3C1';el.style.color='#78716C';}
+  else{S.symChecked[idx].push(si);el.style.background='#FFF1F2';el.style.borderColor='#E11D48';el.style.color='#9F1239';}
+}
+function saveWriting(idx,val){
+  S.writing[idx]=val;
+  const w=UNITS[idx].writing;
+  const wc=val.trim().split(/\s+/).filter(Boolean).length;
+  const el=document.getElementById(`wco-${idx}`);
+  if(el){el.textContent=`${wc} / mínim ${w.minWords} paraules`;el.className='wc-out'+(wc<w.minWords?' wc-warn':'');}
+}
+function markComplete(idx){
+  const w=UNITS[idx].writing;
+  const wc=S.writing[idx].trim().split(/\s+/).filter(Boolean).length;
+  if(wc<w.minWords){alert(`Necessites almenys ${w.minWords} paraules. Ara en tens ${wc}.`);return;}
+  if(!S.checks[idx].every(Boolean)){alert('Marca tots els punts de la llista de verificació primer!');return;}
+  S.completed[idx]=true;
+  if(idx+1<5)S.unlocked[idx+1]=true;
+  const done=S.completed.filter(Boolean).length;
+  document.getElementById('prog-lbl').textContent=`${done} de 5 missions`;
+  document.getElementById('global-bar').style.width=`${done*20}%`;
+  buildNav();
+  updatePDFBar();
+  saveState();
+  renderUnit(idx);
+}
+
+/* ── POINTS ── */
+function addPts(idx,correct,exNum){
+  S.exPts[idx][exNum]=correct;
+  S.pts[idx]=Object.values(S.exPts[idx]).reduce((a,b)=>a+b,0);
+  document.getElementById('pts-total').textContent=S.pts.reduce((a,b)=>a+b,0)+' pts';
+}
+
+/* ── PDF BAR ── */
+function updatePDFBar(){
+  const done=S.completed.filter(Boolean).length,rem=5-done;
+  const btn=document.getElementById('btn-pdf'),st=document.getElementById('pdf-status');
+  if(done===5){btn.disabled=false;st.textContent='Totes les missions completades! Genera el PDF.';}
+  else{btn.disabled=true;st.innerHTML=`Falten <span>${rem} missió${rem>1?'ns':''}</span> per completar.`;}
+}
+
+/* ── PDF ── */
+function generatePDF(){
+  const metaDate=new Date(STU.date).toLocaleDateString('ca-ES',{day:'2-digit',month:'long',year:'numeric'});
+  const totalPts=S.pts.reduce((a,b)=>a+b,0);
+  const scoreRows=UNITS.map((u,idx)=>{
+    const tfC=S.tf[idx].filter((v,i)=>v===u.tf[i].a).length;
+    const roC=(S.reorder[idx]||[]).filter((arr,ri)=>(arr||[]).join(' ').toLowerCase()===u.reorder[ri].answer.toLowerCase()).length;
+    const fiC=u.fill.sentences.filter((s,si)=>(S.fill[idx][si]||'').trim().toLowerCase()===s.blank.toLowerCase()).length;
+    const cjTotal=Object.values(u.conj.forms).reduce((a,arr)=>a+arr.length,0);
+    const cjC=Object.entries(u.conj.forms).reduce((acc,[pron,forms])=>acc+forms.filter((f,fi)=>((S.conj[idx][pron]||[])[fi]||'').toLowerCase()===f.toLowerCase()).length,0);
+    return `<tr><td>${u.emoji} M${idx+1} — ${u.title}</td><td>${tfC}/${u.tf.length}</td><td>${roC}/${u.reorder.length}</td><td>${fiC}/${u.fill.sentences.length}</td><td>${cjC}/${cjTotal}</td></tr>`;
+  }).join('');
+  const unitBlocks=UNITS.map((u,idx)=>{
+    const tfRows=u.tf.map((item,i)=>{const ans=S.tf[idx][i];const ok=ans===item.a;return `<div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #eee;font-size:10pt"><span>${i+1}. ${item.q}</span><span style="font-weight:700;color:${ans===null?'#aaa':ok?'#1E6E2E':'#9B1C1C'}">${ans===null?'—':ans?'V':'F'} ${ans!==null?(ok?'✓':'✗'):''}</span></div>`;}).join('');
+    const openRows=u.open.map((item,i)=>`<div style="margin-bottom:8px"><div style="font-weight:600;font-size:10pt;margin-bottom:2px">${i+1}. ${item.q}</div><div style="font-size:10pt;padding:4px 8px;background:#f9f9f9;border-left:3px solid #94AFFE;min-height:18px">${S.open[idx][i]||'&nbsp;'}</div></div>`).join('');
+    const roRows=u.reorder.map((item,ri)=>{const ans=(S.reorder[idx][ri]||[]).join(' ');const ok=ans.toLowerCase()===item.answer.toLowerCase();return `<div style="padding:3px 0;border-bottom:1px solid #eee;font-size:10pt"><span style="color:#666">F${ri+1}: </span><span style="color:${ans?(ok?'#1E6E2E':'#9B1C1C'):'#aaa'}">${ans||'(sense resposta)'}</span>${ans?` <b>${ok?'✓':'✗'}</b>`:''}</div>`;}).join('');
+    const fiRows=u.fill.sentences.map((s,si)=>{const ans=(S.fill[idx][si]||'').trim();const ok=ans.toLowerCase()===s.blank.toLowerCase();return `<div style="font-size:10pt;padding:3px 0;border-bottom:1px solid #eee">${s.b}<b style="color:${ans?(ok?'#1E6E2E':'#9B1C1C'):'#aaa'}">${ans||'___'}</b>${s.a}${ans?` <b>${ok?'✓':'✗'}</b>`:''}</div>`;}).join('');
+    const pronouns=Object.keys(u.conj.forms);
+    const cjRows=pronouns.map(pron=>{const forms=u.conj.forms[pron];const cells=forms.map((f,fi)=>{const ans=((S.conj[idx][pron]||[])[fi]||'').trim();const ok=ans.toLowerCase()===f.toLowerCase();return `<td style="padding:4px 8px;border:1px solid #ddd"><span style="color:${ans?(ok?'#1E6E2E':'#9B1C1C'):'#aaa'};font-weight:${ok?700:400}">${ans||'—'}</span></td>`;}).join('');return `<tr><td style="padding:4px 8px;border:1px solid #ddd;font-weight:600;color:#1B3BAA">${pron}</td>${cells}</tr>`;}).join('');
+    const checkItems=u.writing.checks.map((c,ci)=>`<div style="font-size:9pt;color:${S.checks[idx][ci]?'#1E6E2E':'#9B1C1C'}">${S.checks[idx][ci]?'☑':'☐'} ${c}</div>`).join('');
+    return `<div style="page-break-before:always;padding:1.5cm">
+    <div style="font-size:15pt;font-weight:800;color:#1B3BAA;border-bottom:2px solid #3B5BDB;padding-bottom:6px;margin-bottom:1rem">${u.emoji} Missió ${idx+1} — ${u.title}</div>
+    <div style="background:#EEF3FF;border-radius:8px;padding:10px 14px;margin-bottom:1rem;font-size:10pt">${u.dialogue.map(([sp,t])=>`<div style="display:flex;gap:8px;margin-bottom:3px"><span style="font-weight:700;font-size:8.5pt;text-transform:uppercase;color:#2244C4;min-width:70px">${sp}</span><span>${t}</span></div>`).join('')}</div>
+    <div style="margin-bottom:1rem"><div style="font-size:11pt;font-weight:700;color:#1B3BAA;margin-bottom:6px">EX 1 — Vertader o Fals?</div>${tfRows}</div>
+    <div style="margin-bottom:1rem"><div style="font-size:11pt;font-weight:700;color:#1B3BAA;margin-bottom:6px">EX 2 — Preguntes obertes</div>${openRows}</div>
+    <div style="margin-bottom:1rem"><div style="font-size:11pt;font-weight:700;color:#1B3BAA;margin-bottom:6px">EX 3 — Ordena les paraules</div>${roRows}</div>
+    <div style="margin-bottom:1rem"><div style="font-size:11pt;font-weight:700;color:#1B3BAA;margin-bottom:6px">EX 4 — Completa les frases</div>${fiRows}</div>
+    <div style="margin-bottom:1rem"><div style="font-size:11pt;font-weight:700;color:#1B3BAA;margin-bottom:6px">EX 5 — Conjugació</div><table style="width:100%;border-collapse:collapse;font-size:10pt"><thead><tr><th style="background:#3B5BDB;color:#fff;padding:5px 8px;text-align:left">Pronom</th>${u.conj.verbs.map(v=>`<th style="background:#3B5BDB;color:#fff;padding:5px 8px;text-align:left">${v}</th>`).join('')}</tr></thead><tbody>${cjRows}</tbody></table></div>
+    <div style="margin-bottom:1rem"><div style="font-size:11pt;font-weight:700;color:#1B3BAA;margin-bottom:6px">EX 6 — Producció escrita</div>
+    <div style="font-size:9pt;background:#EFF6FF;padding:6px 10px;border-radius:4px;margin-bottom:4px"><b>Inici:</b> ${u.writing.starter}</div>
+    <div style="font-size:10pt;line-height:1.7;padding:8px;background:#f9f9f9;border:1px solid #ddd;border-radius:4px;white-space:pre-wrap;min-height:60px">${S.writing[idx]||'(sense resposta)'}</div>
+    <div style="margin-top:6px">${checkItems}</div></div>
+    </div>`;
+  }).join('');
+  const win=window.open('','_blank');
+  win.document.write(`<!DOCTYPE html><html lang="ca"><head><meta charset="UTF-8"><title>Avec Léo — ${STU.name}</title>
+  <style>body{font-family:'Segoe UI',sans-serif;margin:0;padding:0;font-size:11pt;}
+  .ph{background:linear-gradient(90deg,#1B3BAA,#3B5BDB);color:#fff;padding:1cm 1.5cm;display:flex;justify-content:space-between;align-items:flex-end;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .ph h1{font-size:16pt;margin:0;}.ph .pm{font-size:9pt;opacity:0.85;text-align:right;line-height:1.6;}
+  .sum{padding:0.75cm 1.5cm;}.st{width:100%;border-collapse:collapse;font-size:10pt;}
+  .st th{background:#EEF3FF;padding:6px 10px;text-align:left;border:1px solid #C7D7FE;font-weight:600;}
+  .st td{padding:5px 10px;border:1px solid #ddd;}
+  @media print{@page{margin:0;}}
+/* ── VOCAB SECTION ── */
+.vocab-section{background:#FBFCFE;border:1px solid #E7E5E4;border-radius:16px;padding:1rem;margin-bottom:1.75rem;}
+.vocab-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;}
+.vocab-header h3{font-size:0.9rem;font-weight:700;color:var(--b900);display:flex;align-items:center;gap:6px;}
+.vocab-tag{font-size:10px;background:var(--g50);color:var(--g800);border-radius:20px;padding:2px 9px;font-weight:700;}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:9px;}@media(max-width:480px){.vocab-grid{grid-template-columns:repeat(3,1fr);}.vocab-card .vc-img{padding:6px;}}
+.vocab-card{border:1.5px solid #E7E5E4;border-radius:14px;overflow:hidden;cursor:pointer;transition:all 0.18s;background:#fff;user-select:none;}
+.vocab-card:hover{border-color:#93C5FD;transform:translateY(-2px);}
+.vocab-card .vc-img{width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:#F2F7FF;padding:8px;}
+.vocab-card .vc-img svg{width:100%;height:100%;}
+.vocab-card .vc-label{padding:5px 7px 7px;}
+.vc-fr{font-size:0.79rem;font-weight:700;color:#1E3A8A;display:block;}
+.vc-ca{font-size:0.69rem;color:var(--gr600);display:block;margin-top:1px;}
+/* Memory game */
+.mem-game{margin-top:1.1rem;border-top:1px solid var(--gr100);padding-top:0.9rem;}
+.mem-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.65rem;flex-wrap:wrap;gap:6px;}
+.mem-header h4{font-size:0.83rem;font-weight:700;color:var(--b900);}
+.mem-info{font-size:0.79rem;color:#888;display:flex;gap:10px;align-items:center;}
+.mem-pairs{font-weight:700;color:var(--b600);}
+.mem-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:7px;}
+.mc{border:1.5px solid #E7E5E4;border-radius:12px;padding:7px 5px;text-align:center;cursor:pointer;transition:all 0.18s;background:#FBFCFE;min-height:72px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;user-select:none;}
+.mc:hover{border-color:#93C5FD;background:#EFF6FF;}
+.mc.active{border-color:#2563EB;background:#DBEAFE;transform:scale(1.04);}
+.mc.matched{border-color:var(--g600);background:var(--g50);cursor:default;}
+.mc.wrong{border-color:var(--r600);background:var(--r50);}
+@keyframes matchpop{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.mc.matched{animation:matchpop 0.3s ease;}
+.mc .mc-img{width:46px;height:46px;}
+.mc .mc-img svg{width:100%;height:100%;}
+.mc .mc-w{font-size:0.79rem;font-weight:700;color:#1E3A8A;line-height:1.3;}
+.mc .mc-t{font-size:0.68rem;color:var(--gr600);}
+.mem-done{text-align:center;padding:0.65rem;background:var(--g50);border-radius:8px;font-size:0.85rem;color:var(--g800);font-weight:600;margin-top:6px;}
+</style></head><body>
+  <div class="ph"><h1>🇫🇷 Avec Léo — Lliurament</h1><div class="pm"><strong>${STU.name}</strong><br>${STU.group} · ${metaDate}<br>Total: <strong>${totalPts} punts</strong></div></div>
+  <div class="sum"><h2 style="font-size:12pt;color:#1B3BAA;margin:0.5rem 0">Resum de puntuació</h2>
+  <table class="st"><thead><tr><th>Missió</th><th>V/F</th><th>Ordenar</th><th>Completar</th><th>Conjugació</th></tr></thead><tbody>${scoreRows}</tbody></table>
+  <p style="font-size:9pt;color:#666;margin-top:6px">Les preguntes obertes i la producció escrita es valoren per l'avaluació del professor/a.</p></div>
+  ${unitBlocks}<script>window.onload=function(){window.print();};<\/script></body></html>`);
+  win.document.close();
+}
+
+/* ── AUTOSAVE ── */
+const SAVE_KEY='avec_leo_v2';
+function saveState(){
+  if(!S.started)return;
+  try{
+    localStorage.setItem(SAVE_KEY,JSON.stringify({STU,S}));
+    const ind=document.getElementById('autosave-ind');
+    if(ind){ind.style.opacity='1';setTimeout(()=>{ind.style.opacity='0';},1800);}
+  }catch(e){}
+}
+function loadState(){
+  try{
+    const raw=localStorage.getItem(SAVE_KEY);if(!raw)return false;
+    const snap=JSON.parse(raw);if(!snap.STU||!snap.S)return false;
+    Object.assign(STU,snap.STU);Object.assign(S,snap.S);
+    if(!S.exPts)S.exPts=UNITS.map(()=>({}));
+    if(!S.reorderShuffled)S.reorderShuffled=UNITS.map(u=>u.reorder.map(item=>shuf(item.tokens.slice())));
+    return true;
+  }catch(e){return false;}
+}
+function clearSave(){localStorage.removeItem(SAVE_KEY);}
+setInterval(saveState,10000);
+document.addEventListener('input',saveState);
+document.addEventListener('click',()=>setTimeout(saveState,200));
+window.addEventListener('load',()=>{
+  if(loadState()&&STU.name){
+    const resume=confirm(`Continuar la sessió de ${STU.name} (${STU.group})?`);
+    if(resume){
+      document.getElementById('cover').style.display='none';
+      document.querySelector('header').style.display='block';
+      document.querySelector('.nav-wrap').style.display='block';
+      document.getElementById('app').style.display='block';
+      document.getElementById('pdf-bar').classList.add('show');
+      document.getElementById('student-tag').innerHTML=`<strong>${STU.name}</strong><br>${STU.group} · ${STU.date}`;
+      S.started=true;
+      buildNav();updatePDFBar();showUnit(S.current||0);
+    }else{clearSave();}
+  }
+});
+
+/* ── ANTI-COPY-PASTE ── */
+document.addEventListener('copy',e=>e.preventDefault());
+document.addEventListener('cut',e=>e.preventDefault());
+document.addEventListener('paste',e=>e.preventDefault());
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('keydown',e=>{const c=e.ctrlKey||e.metaKey;if(c&&['c','x','v','a'].includes(e.key.toLowerCase()))e.preventDefault();});
+document.addEventListener('drop',e=>{if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')e.preventDefault();});
+document.addEventListener('dragstart',e=>{if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')e.preventDefault();});
+
+document.getElementById('s-date').value=new Date().toISOString().split('T')[0];
+</script>
+</body>
+</html>
